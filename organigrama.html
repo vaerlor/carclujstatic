@@ -1,906 +1,1151 @@
 <style>
-   /* overwrite big first letter in p */
-   article.article.view-mode-full .field--name-body p:first-of-type::first-letter,
-   article.page.view-mode-full .field--name-body p:first-of-type::first-letter,
-   article.article.view-mode-full .field--name-body p:first-of-type,
-   article.page.view-mode-full .field--name-body p:first-of-type {
-      font-size: inherit;
-      color: inherit;
-      margin: 0;
-      font-weight: inherit;
-      padding: 0;
-      float: none;
-   }
+  /* overwrite big first letter in p */
+  article.article.view-mode-full
+    .field--name-body
+    p:first-of-type::first-letter,
+  article.page.view-mode-full .field--name-body p:first-of-type::first-letter,
+  article.article.view-mode-full .field--name-body p:first-of-type,
+  article.page.view-mode-full .field--name-body p:first-of-type {
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    font-weight: inherit;
+    padding: 0;
+    float: none;
+  }
 
-   article.page.view-mode-full .field--name-body,
-   article.node .node-content .field--name-body li {
-      text-align: left;
-      word-break: break-word;
-   }
+  article.page.view-mode-full .field--name-body,
+  article.node .node-content .field--name-body li {
+    text-align: left;
+    word-break: break-word;
+  }
 </style>
 <script>
-   function createElement({ type, className, content }) {
-      const node = document.createElement(type);
-      node.className = className;
-      if (content) {
-         node.textContent = content;
-      }
+  function createElement({ type, className, content }) {
+    const node = document.createElement(type);
+    node.className = className;
+    if (content) {
+      node.textContent = content;
+    }
 
-      return node;
-   }
+    return node;
+  }
 </script>
 
 <div class="car-organisation-page">
+  <h2>Administrativ</h2>
+  <script>
+    const data = [
+      {
+        name: "Dinu Mititeanu",
+        title: "Preşedinte de onoare",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-08/Dinu.jpg.webp",
+      },
+      {
+        name: "Mircea Ignat",
+        title: "Preşedinte",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-01/profil%20rev%201.jpg.webp",
+      },
+      {
+        name: "Ovidiu Motioc",
+        title: "Vicepreşedinte",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/OvidiuMotioc.jpg.webp",
+      },
+      {
+        name: "Daniel Cocoș",
+        title: "Secretar",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Cocos%252BDaniel.jpg.webp",
+      },
+      {
+        name: "Marius Florea",
+        title: "Membru CD",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Marius%252BFlorea%252BID.jpg.webp",
+      },
+      {
+        name: "Dragoș Moraru",
+        title: "Membru CD",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Moraru%252BDragos.png.webp",
+      },
+      {
+        name: "Aida Țincu",
+        title: "Membru CD",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/tincu%252Baida.jpg.webp",
+      },
+      {
+        name: "Ioana Bunea",
+        title: "Membru CD",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Ioana%252BBunea%252Bfoto%252B-%252BIoana%252BBunea.jpg.webp",
+      },
+      {
+        name: "Alina Cîrja",
+        title: "Membru Supleant",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2023-04/AlinaCirja.jpg.webp",
+      },
+      {
+        name: "Alexandra Vasilache",
+        title: "Membru Supleant",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Poza_Vasilache_Alexanadra%252B-%252Balexandra%252Bvasilache.jpg.webp",
+      },
+      {
+        name: "Cătălin Dănilă",
+        title: "Membru Supleant",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2023-01/20230112_093957.jpg.webp",
+      },
+      {
+        name: "Maria Terec",
+        title: "Cenzor",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-03/Maria%20portret%20mic.jpg.webp",
+      },
+      {
+        name: "Georgeta Oltean",
+        title: "Cenzor",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-07/GetaOlteanNou.jpg.webp",
+      },
+      {
+        name: "Elena Chira",
+        title: "Cenzor",
+        img: "https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Elena%252BMaria%252BChira.jpg.webp",
+      },
+    ];
 
-   <h2>Administrativ</h2>
-   <script>
-      const data = [
-         {
-            name: 'Dinu Mititeanu',
-            title: 'Preşedinte de onoare',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-08/Dinu.jpg.webp'
-         },
-         {
-            name: 'Mircea Ignat',
-            title: 'Preşedinte',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-01/profil%20rev%201.jpg.webp'
-         },
-         {
-            name: 'Ovidiu Motioc',
-            title: 'Vicepreşedinte',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/OvidiuMotioc.jpg.webp'
-         },
-         {
-            name: 'Daniel Cocoș',
-            title: 'Secretar',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Cocos%252BDaniel.jpg.webp'
-         },
-         {
-            name: 'Marius Florea',
-            title: 'Membru CD',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Marius%252BFlorea%252BID.jpg.webp'
-         },
-         {
-            name: 'Dragoș Moraru',
-            title: 'Membru CD',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Moraru%252BDragos.png.webp'
-         },
-         {
-            name: 'Aida Țincu',
-            title: 'Membru CD',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/tincu%252Baida.jpg.webp'
-         },
-         {
-            name: 'Ioana Bunea',
-            title: 'Membru CD',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Ioana%252BBunea%252Bfoto%252B-%252BIoana%252BBunea.jpg.webp'
-         },
-         {
-            name: 'Alina Cîrja',
-            title: 'Membru Supleant',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2023-04/AlinaCirja.jpg.webp'
-         },
-         {
-            name: 'Alexandra Vasilache',
-            title: 'Membru Supleant',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Poza_Vasilache_Alexanadra%252B-%252Balexandra%252Bvasilache.jpg.webp'
-         },
-         {
-            name: 'Cătălin Dănilă',
-            title: 'Membru Supleant',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2023-01/20230112_093957.jpg.webp'
-         },
-         {
-            name: 'Maria Terec',
-            title: 'Cenzor',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-03/Maria%20portret%20mic.jpg.webp'
-         },
-         {
-            name: 'Georgeta Oltean',
-            title: 'Cenzor',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/pictures/2022-07/GetaOlteanNou.jpg.webp'
-         },
-         {
-            name: 'Elena Chira',
-            title: 'Cenzor',
-            img: 'https://carcluj.ro/sites/default/files/styles/scale_crop_120x120/public/Elena%252BMaria%252BChira.jpg.webp'
-         }
-      ]
-
-      function createAdministrativeItem(item, attachTo) {
-         const outerWrapper = createElement({ type: 'div', className: 'administrative-item-wrapper' });
-         const wrapper = createElement({ type: 'div', className: 'administrative-item' });
-         let image = null;
-         if (item.img) {
-            image = createElement({ type: 'img', className: 'administrative-item-img' });
-            image.src = item.img;
-         }
-         const title = createElement({ type: 'div', className: 'administrative-item-title', content: item.title });
-         const name = createElement({ type: 'div', className: 'administrative-item-name', content: item.name });
-
-         if (image) {
-            wrapper.appendChild(image);
-         }
-         wrapper.appendChild(title);
-         wrapper.appendChild(name);
-
-         outerWrapper.appendChild(wrapper);
-         attachTo.appendChild(outerWrapper);
+    function createAdministrativeItem(item, attachTo) {
+      const outerWrapper = createElement({
+        type: "div",
+        className: "administrative-item-wrapper",
+      });
+      const wrapper = createElement({
+        type: "div",
+        className: "administrative-item",
+      });
+      let image = null;
+      if (item.img) {
+        image = createElement({
+          type: "img",
+          className: "administrative-item-img",
+        });
+        image.src = item.img;
       }
-
-      window.addEventListener('load', (event) => {
-         const wrapper = document.querySelector('.administrative');
-         data.forEach(item => createAdministrativeItem(item, wrapper))
+      const title = createElement({
+        type: "div",
+        className: "administrative-item-title",
+        content: item.title,
+      });
+      const name = createElement({
+        type: "div",
+        className: "administrative-item-name",
+        content: item.name,
       });
 
-   </script>
-   <style type="text/css">
+      if (image) {
+        wrapper.appendChild(image);
+      }
+      wrapper.appendChild(title);
+      wrapper.appendChild(name);
+
+      outerWrapper.appendChild(wrapper);
+      attachTo.appendChild(outerWrapper);
+    }
+
+    window.addEventListener("load", (event) => {
+      const wrapper = document.querySelector(".administrative");
+      data.forEach((item) => createAdministrativeItem(item, wrapper));
+    });
+  </script>
+  <style type="text/css">
+    .administrative-item-wrapper {
+      display: inline-flex;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 30px;
+      width: 33%;
+    }
+
+    @media (min-width: 600px) {
       .administrative-item-wrapper {
-         display: inline-flex;
-         justify-content: center;
-         text-align: center;
-         margin-bottom: 30px;
-         width: 33%;
+        width: 25%;
       }
+    }
 
-      @media (min-width: 600px) {
-         .administrative-item-wrapper {
-            width: 25%;
-         }
+    @media (min-width: 960px) {
+      .administrative-item-wrapper {
+        width: 16.66%;
       }
+    }
 
-      @media (min-width: 960px) {
-         .administrative-item-wrapper {
-            width: 16.66%;
-         }
-      }
+    .administrative-item {
+      display: inline-block;
+    }
 
-      .administrative-item {
-         display: inline-block
-      }
+    .administrative-item img {
+      max-width: 120px;
+      max-height: 120px;
+    }
 
-      .administrative-item img {
-         max-width: 120px;
-         max-height: 120px;
-      }
+    .administrative-item-title {
+      margin-bottom: 0;
+      line-height: 1.2;
+    }
 
-      .administrative-item-title {
-         margin-bottom: 0;
-         line-height: 1.2;
-      }
+    .administrative-item-name {
+      font-weight: 600;
+    }
+  </style>
+  <div class="administrative"></div>
 
-      .administrative-item-name {
-         font-weight: 600;
-      }
-   </style>
-   <div class="administrative"></div>
+  <h2>Departamente</h2>
+  <script>
+    const departments = [
+      {
+        name: "Schi de turǎ",
+        items: ["Radu Vidra", "Alin Hapca", "Serghei Suslov", "Sorin Hosu"],
+      },
+      {
+        name: "Alpinism",
+        items: [
+          "Mircea V. Ignat",
+          "Claudiu Lazăr",
+          "Marius Florea",
+          "Daniel Cocoș",
+          "Ionuț Jula",
+          "Cătălin Dănilă",
+        ],
+      },
+      {
+        name: "Escaladǎ",
+        items: ["Aida Tincu", "Șerban Groza", "Raluca Florea"],
+      },
+      {
+        name: "Drumeţie",
+        items: [
+          "Ovidiu Motioc",
+          "Cotyso Igna",
+          "Marcel Giurgea",
+          "Radu Ioaniţescu",
+        ],
+      },
+      {
+        name: "MTB",
+        items: ["Alina Cîrja", "Adrian Hogiu", "Ştefan Tamaşi"],
+      },
+      {
+        name: "Alergare montană",
+        items: ["Laurenţiu Vezentan", "Răzvan Samoilă", "Florin Chircu"],
+      },
+      {
+        name: "Poteci, marcaje, cabane",
+        items: [
+          "Horaţiu Popa",
+          "Mircea Bohuș",
+          "Alin Șteopan",
+          "Carmen Ranca",
+          "Radu Cozma",
+        ],
+      },
+      {
+        name: "Foto",
+        items: ["Vio Oprea", "Lucian Sătmărean"],
+      },
+      {
+        name: "Tineret",
+        items: ["Daniel Cocoş", "Mihai Vlad Mătărîngă"],
+      },
+    ];
 
-   <h2>Departamente</h2>
-   <script>
-      const departments = [
-         {
-            name: 'Schi de turǎ',
-            items: [
-               'Radu Vidra',
-               'Alin Hapca',
-               'Serghei Suslov',
-               'Sorin Hosu'
-            ]
-         },
-         {
-            name: 'Alpinism',
-            items: [
-               'Mircea V. Ignat',
-               'Claudiu Lazăr',
-               'Marius Florea',
-               'Daniel Cocoș',
-               'Ionuț Jula',
-               'Cătălin Dănilă',
-            ]
-         },
-         {
-            name: 'Escaladǎ',
-            items: [
-               'Aida Tincu',
-               'Șerban Groza',
-               'Raluca Florea',
-            ]
-         },
-         {
-            name: 'Drumeţie',
-            items: [
-               'Ovidiu Motioc',
-               'Cotyso Igna',
-               'Marcel Giurgea',
-               'Radu Ioaniţescu',
-            ]
-         },
-         {
-            name: 'MTB',
-            items: [
-               'Alina Cîrja',
-               'Adrian Hogiu',
-               'Ştefan Tamaşi',
-            ]
-         },
-         {
-            name: 'Alergare montană',
-            items: [
-               'Laurenţiu Vezentan',
-               'Răzvan Samoilă',
-               'Florin Chircu',
-            ]
-         },
-         {
-            name: 'Poteci, marcaje, cabane',
-            items: [
-               'Horaţiu Popa',
-               'Mircea Bohuș',
-               'Alin Șteopan',
-               'Carmen Ranca',
-               'Radu Cozma'
-            ]
-         },
-         {
-            name: 'Foto',
-            items: [
-               'Vio Oprea',
-               'Lucian Sătmărean'
-            ]
-         },
-         {
-            name: 'Tineret',
-            items: [
-               'Daniel Cocoş',
-               'Mihai Vlad Mătărîngă',
-            ]
-         }
-      ]
-
-
-
-      function createNode(node, attachTo) {
-         const wrapper = createElement({ type: 'div', className: 'departments-node' });
-         const title = createElement({ type: 'div', className: 'departments-node-title', content: node.name })
-         const list = createElement({ type: 'ul', className: 'departments-node-list' });
-
-         node.items.forEach((item) => {
-            const horizontalLine = createElement({ type: 'span', className: 'departments-node-list-title-horizntal-line' });
-            const verticalLine = createElement({ type: 'span', className: 'departments-node-list-title-vertical-line' });
-            const nodeTitle = createElement({
-               type: 'li',
-               className: 'departments-node-list-title',
-               content: item,
-            })
-            nodeTitle.appendChild(horizontalLine);
-            nodeTitle.appendChild(verticalLine);
-            list.appendChild(nodeTitle);
-         });
-
-         wrapper.appendChild(title);
-         wrapper.appendChild(list);
-         attachTo.appendChild(wrapper);
-      }
-
-      window.addEventListener('load', (event) => {
-         const bodyElement = document.querySelector('.departments-body');
-         departments.forEach(function (node) {
-            createNode(node, bodyElement)
-         });
+    function createNode(node, attachTo) {
+      const wrapper = createElement({
+        type: "div",
+        className: "departments-node",
       });
-   </script>
-   <style type="text/css">
-      .departments-body {
-         display: flex;
-         flex-wrap: wrap;
-      }
+      const title = createElement({
+        type: "div",
+        className: "departments-node-title",
+        content: node.name,
+      });
+      const list = createElement({
+        type: "ul",
+        className: "departments-node-list",
+      });
 
+      node.items.forEach((item) => {
+        const horizontalLine = createElement({
+          type: "span",
+          className: "departments-node-list-title-horizntal-line",
+        });
+        const verticalLine = createElement({
+          type: "span",
+          className: "departments-node-list-title-vertical-line",
+        });
+        const nodeTitle = createElement({
+          type: "li",
+          className: "departments-node-list-title",
+          content: item,
+        });
+        nodeTitle.appendChild(horizontalLine);
+        nodeTitle.appendChild(verticalLine);
+        list.appendChild(nodeTitle);
+      });
+
+      wrapper.appendChild(title);
+      wrapper.appendChild(list);
+      attachTo.appendChild(wrapper);
+    }
+
+    window.addEventListener("load", (event) => {
+      const bodyElement = document.querySelector(".departments-body");
+      departments.forEach(function (node) {
+        createNode(node, bodyElement);
+      });
+    });
+  </script>
+  <style type="text/css">
+    .departments-body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .departments-node {
+      flex: 1;
+      min-width: 50%;
+      margin-bottom: 30px;
+      padding: 0 5px;
+    }
+
+    @media (min-width: 760px) {
       .departments-node {
-         flex: 1;
-         min-width: 50%;
-         margin-bottom: 30px;
-         padding: 0 5px;
+        min-width: 20%;
       }
+    }
 
-      @media (min-width: 760px) {
-         .departments-node {
-            min-width: 20%;
-         }
+    @media (min-width: 1024px) {
+      .departments-node {
+        /* min-width: initial; */
       }
+    }
 
-      @media(min-width: 1024px) {
-         .departments-node {
-            /* min-width: initial; */
-         }
-      }
+    .departments-node-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-      .departments-node-title {
-         font-weight: 600;
-         margin-bottom: 10px;
-      }
+    .departments-node-list {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
 
-      .departments-node-list {
-         list-style: none;
-         margin: 0;
-         padding: 0 0 0 5px;
-      }
+    .car-organisation-page a,
+    .car-organisation-page a:visited {
+      color: #0fa9f2;
+    }
 
-      .car-organisation-page a,
-      .car-organisation-page a:visited {
-         color: #0FA9F2;
-      }
+    .car-organisation-page a:hover {
+      text-decoration: underline;
+    }
 
-      .car-organisation-page a:hover {
-         text-decoration: underline;
-      }
+    h4.department-representatives-item-content-name,
+    h4.department-representatives-item-content-name a {
+      font-weight: 300;
+    }
 
-      h4.department-representatives-item-content-name,
-      h4.department-representatives-item-content-name a {
-         font-weight: 300;
-      }
+    .departments-node .departments-node-list-title {
+      position: relative;
+      padding: 5px 20px 5px 25px;
+      line-height: 1.3;
+    }
 
-      .departments-node .departments-node-list-title {
-         position: relative;
-         padding: 5px 20px 5px 25px;
-         line-height: 1.3;
-      }
+    .departments-node-list-title-horizntal-line {
+      content: "";
+      position: absolute;
+      top: 50%;
+      height: 2px;
+      left: 0;
+      width: 14px;
+      background: #50b3ea;
+    }
 
-      .departments-node-list-title-horizntal-line {
-         content: '';
-         position: absolute;
-         top: 50%;
-         height: 2px;
-         left: 0;
-         width: 14px;
-         background: #50b3ea;
-      }
+    .departments-node-list-title:before {
+      display: none;
+    }
 
-      .departments-node-list-title:before {
-         display: none;
-      }
+    .departments-node-list-title-vertical-line {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: #50b3ea;
+    }
 
+    .departments-node-list-title:last-child
       .departments-node-list-title-vertical-line {
-         content: '';
-         position: absolute;
-         top: 0;
-         bottom: 0;
-         left: 0;
-         width: 2px;
-         background: #50b3ea;
-      }
+      bottom: 50%;
+    }
+  </style>
+  <div class="departments">
+    <div class="departments-body">&nbsp;</div>
+  </div>
 
-      .departments-node-list-title:last-child .departments-node-list-title-vertical-line {
-         bottom: 50%;
-      }
-   </style>
-   <div class="departments">
-      <div class="departments-body">&nbsp;</div>
-   </div>
+  <h2>Documente importante ale clubului:</h2>
 
-   <h2>Documente importante ale clubului:</h2>
+  <ul>
+    <li>
+      <a target="_blank" href="https://carcluj.ro/statutul-filialei-cluj"
+        >Statutul Filialei</a
+      >
+    </li>
+    <li>
+      <a target="_blank" href="https://carcluj.ro/avantaje-membri"
+        >Avantaje membri</a
+      >
+    </li>
+    <li>
+      <a target="_blank" href="https://carcluj.ro/plan-activitati"
+        >Plan de activități</a
+      >
+    </li>
+    <li>
+      <a target="_blank" href="https://carcluj.ro/CAR-Branding-Manual.pdf"
+        >Manual de identitate</a
+      >
+    </li>
+    <li>
+      <a
+        target="_blank"
+        href="https://carcluj.ro/declaratie-de-participare-si-de-asumare-riscului"
+        >Declarație de participare și de asumare a riscului</a
+      >
+    </li>
+    <li>
+      <a
+        target="_blank"
+        href="https://docs.google.com/document/d/1-7LfWCyaZuPvK18p1FuGC_3g-RR6XEUR1WQjvcrOQ4g/edit"
+        >Ghid de comunicare</a
+      >
+    </li>
+  </ul>
 
-   <ul>
-      <li><a target="_blank" href="https://carcluj.ro/statutul-filialei-cluj">Statutul Filialei</a></li>
-      <li><a target="_blank" href="https://carcluj.ro/avantaje-membri">Avantaje membri</a></li>
-      <li><a target="_blank" href="https://carcluj.ro/plan-activitati">Plan de activități</a></li>
-      <li><a target="_blank" href="https://carcluj.ro/CAR-Branding-Manual.pdf">Manual de identitate</a></li>
-      <li><a target="_blank" href="https://carcluj.ro/declaratie-de-participare-si-de-asumare-riscului">Declarație de
-            participare și de asumare a riscului</a></li>
-      <li><a target="_blank"
-            href="https://docs.google.com/document/d/1-7LfWCyaZuPvK18p1FuGC_3g-RR6XEUR1WQjvcrOQ4g/edit">Ghid de
-            comunicare</a></li>
-   </ul>
-
-
-   <h2>Recomandări pentru membri pe partea de comunicare:</h2>
-   <ul>
-      <li>să citească și să aplice <a target="_blank"
-            href="https://docs.google.com/document/d/1-7LfWCyaZuPvK18p1FuGC_3g-RR6XEUR1WQjvcrOQ4g/edit">Ghidul de
-            comunicare CAR Filiala Cluj;</a></li>
-      <li>să comunice și să promoveze activitățile departamentului pe:</li>
-      <ul>
-         <li>pagina de web/blogul Filialei Cluj</li>
-         <li>grupul intern de e-mail</li>
-         <li>pagina de <a target="_blank" href="https://www.facebook.com/carucluj">Facebook</a> a CAR Filiala Cluj</li>
-         <li>pagina de <a target="_blank" href="https://www.instagram.com/clubul_alpin_roman_cluj/?hl=en">Instagram</a>
-            a CAR Filiala Cluj</li>
-      </ul>
-      <li>să adune materiale foto/text de la coordonatorii activităților (cei care au anunțat tura în calendarul CAR);
+  <h2>Recomandări pentru membri pe partea de comunicare:</h2>
+  <ul>
+    <li>
+      să citească și să aplice
+      <a
+        target="_blank"
+        href="https://docs.google.com/document/d/1-7LfWCyaZuPvK18p1FuGC_3g-RR6XEUR1WQjvcrOQ4g/edit"
+        >Ghidul de comunicare CAR Filiala Cluj;</a
+      >
+    </li>
+    <li>să comunice și să promoveze activitățile departamentului pe:</li>
+    <ul>
+      <li>pagina de web/blogul Filialei Cluj</li>
+      <li>grupul intern de e-mail</li>
+      <li>
+        pagina de
+        <a target="_blank" href="https://www.facebook.com/carucluj">Facebook</a>
+        a CAR Filiala Cluj
       </li>
-      <li>să verifice și corecteze textul primit de la coordonatorii turei respective (să nu fie erori);</li>
-      <li>să realizeze selecția foto, alegând câteva cadre reprezentative (maxim 30 cadre);</li>
-      <li>să găsească o persoană care să-l suplinească în cazul în care el nu poate onora „comunicarea” în momentul
-         respectiv;</li>
-      <li>să comunice bine cu coordonatorul departamentului respectiv și să se sincronizeze cât mai bine posibil;</li>
-      <li>să anunțe coordonatorul departamentului, în cazul în care nu se mai poate ocupa de cele de mai sus;</li>
-      <li>să promoveze proiecțiile pentru departamentul aferent temei proiecției;</li>
-      <li>să realizeze o proiecție în fiecare sezon pentru departament, în care se va prezenta retrospectiva
-         activităților pentru anul în curs.</li>
-   </ul>
+      <li>
+        pagina de
+        <a
+          target="_blank"
+          href="https://www.instagram.com/clubul_alpin_roman_cluj/?hl=en"
+          >Instagram</a
+        >
+        a CAR Filiala Cluj
+      </li>
+    </ul>
+    <li>
+      să adune materiale foto/text de la coordonatorii activităților (cei care
+      au anunțat tura în calendarul CAR);
+    </li>
+    <li>
+      să verifice și corecteze textul primit de la coordonatorii turei
+      respective (să nu fie erori);
+    </li>
+    <li>
+      să realizeze selecția foto, alegând câteva cadre reprezentative (maxim 30
+      cadre);
+    </li>
+    <li>
+      să găsească o persoană care să-l suplinească în cazul în care el nu poate
+      onora „comunicarea” în momentul respectiv;
+    </li>
+    <li>
+      să comunice bine cu coordonatorul departamentului respectiv și să se
+      sincronizeze cât mai bine posibil;
+    </li>
+    <li>
+      să anunțe coordonatorul departamentului, în cazul în care nu se mai poate
+      ocupa de cele de mai sus;
+    </li>
+    <li>
+      să promoveze proiecțiile pentru departamentul aferent temei proiecției;
+    </li>
+    <li>
+      să realizeze o proiecție în fiecare sezon pentru departament, în care se
+      va prezenta retrospectiva activităților pentru anul în curs.
+    </li>
+  </ul>
 
+  <h2>Responsabili/persoane de contact:</h2>
+  <style type="text/css">
+    .department-representatives-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
 
-   <h2>Responsabili/persoane de contact:</h2>
-   <style type="text/css">
+    .department-representatives-item-content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .department-representatives-item-img-wrapper {
+      max-width: 128px;
+      min-width: 128px;
+      padding-left: 20px;
+    }
+
+    .department-representatives-item
+      .department-representatives-item-content
+      ul.department-representatives-item-content-list {
+      padding: 0;
+    }
+
+    h3.department-representatives-item-content-title {
+      margin: 0;
+    }
+
+    h4.department-representatives-item-content-name {
+      margin: 0;
+    }
+
+    .department-representatives-item-img-wrapper img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (min-width: 600px) {
       .department-representatives-item {
-         display: flex;
-         flex-direction: column;
-         margin-bottom: 50px;
+        flex-direction: row;
       }
 
       .department-representatives-item-content {
-         padding-left: 20px;
-         padding-right: 20px;
+        padding-left: 50px;
       }
 
       .department-representatives-item-img-wrapper {
-         max-width: 128px;
-         min-width: 128px;
-         padding-left: 20px;
+        padding-left: 0;
       }
+    }
+  </style>
 
-      .department-representatives-item .department-representatives-item-content ul.department-representatives-item-content-list {
-         padding: 0;
-      }
-
-      h3.department-representatives-item-content-title {
-         margin: 0;
-      }
-
-      h4.department-representatives-item-content-name {
-         margin: 0;
-      }
-
-      .department-representatives-item-img-wrapper img {
-         width: 100%;
-         height: auto;
-      }
-
-      @media (min-width: 600px) {
-         .department-representatives-item {
-            flex-direction: row;
-         }
-
-         .department-representatives-item-content {
-            padding-left: 50px;
-         }
-
-         .department-representatives-item-img-wrapper {
-            padding-left: 0;
-         }
-      }
-   </style>
-
-
-   <div class="department-representatives">
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="https://carcluj.ro/sites/default/files/pictures/2023-03/RaduTerec_2016.jpg" /></div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">IT Master:</h3>
-            <h4 class="department-representatives-item-content-name"><a target="_blank"
-                  href="https://carcluj.ro/user/6">Radu Terec</a></h4>
-            <ul class="department-representatives-item-content-list">
-               <li>Coordonarea implementării siteului carcluj.ro și a shop-ului.</li>
-               <li>Administrarea conținutului de pe site, blog și grup.</li>
-               <li>Gestionarea relației cu asiguratorul.</li>
-            </ul>
-         </div>
+  <div class="department-representatives">
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2023-03/RaduTerec_2016.jpg"
+        />
       </div>
-
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="https://carcluj.ro/sites/default/files/pictures/2022-03/Maria%20portret%20mic.jpg" /></div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Evidență membri:</h3>
-
-            <h4 class="department-representatives-item-content-name"><a target="_blank"
-                  href="https://carcluj.ro/user/34">Maria Terec</a></h4>
-
-            <ul class="department-representatives-item-content-list">
-               <li>Răspunde la mesajele de contact</li>
-               <li>Centralizare cereri înscriere membri noi</li>
-               <li>Verificare plată cotizație</li>
-               <li>Tipărire legitimații</li>
-            </ul>
-
-            <p>Pentru afiș recomandam folosirea versiunii standard, care respecta identitatea vizuala a CAR Cluj.</p>
-         </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          IT Master:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/6">Radu Terec</a>
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>Coordonarea implementării siteului carcluj.ro și a shop-ului.</li>
+          <li>Administrarea conținutului de pe site, blog și grup.</li>
+          <li>Gestionarea relației cu asiguratorul.</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="https://carcluj.ro/sites/default/files/OvidiuMotioc.jpg" /></div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Calendar si Program de activități:</h3>
-            <h4 class="department-representatives-item-content-name"><a target="_blank"
-                  href="https://carcluj.ro/user/19">Ovidiu Motioc</a></h4>
-            <ul class="department-representatives-item-content-list">
-               <li>plan de activități</li>
-               <li>stimulare activități și departamente</li>
-               <li>parteneriate și sponsorizări</li>
-               <li>coordonare acțiuni de mediu și conștientizare</li>
-               <li>ateliere și activități indoor</li>
-               <li>redactare organigramă departamente</li>
-               <li>actualizare periodică în funcție de evoluția anuală</li>
-            </ul>
-         </div>
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2022-03/Maria%20portret%20mic.jpg"
+        />
       </div>
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/pictures/2022-01/profil%20rev%201.jpg" />
-         </div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Comunicare externă:</h3>
-            <h4 class="department-representatives-item-content-name"><a target="_blank"
-                  href="https://carcluj.ro/user/35">Mircea Ignat</a></h4>
-            <ul class="department-representatives-item-content-list">
-               <li>coordonare împăduriri în arii protejate, greu accesibile</li>
-               <li>atragere de fonduri pentru Refugiul Montan II</li>
-               <li>gestionare/reprezentare în relație cu terți</li>
-               <li>recepționare mesaje și apeluri din exteriorul clubului (contact și social media)</li>
-            </ul>
-         </div>
-      </div>
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="data:image/jpeg;base64,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" />
-         </div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Coordonator voluntari:</h3>
-            <h4 class="department-representatives-item-content-name"><a target="_blank"
-                  href="https://carcluj.ro/user/10">Anca Brișan</a></h4>
-            <ul class="department-representatives-item-content-list">
-               <li>Responsabil coordonare voluntari</li>
-            </ul>
-         </div>
-      </div>
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="https://carcluj.ro/sites/default/files/pictures/2024-01/DRAGOS%20poza%20tip%20buletin.jpg" /></div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Maraton Apuseni:</h3>
-            <h4 class="department-representatives-item-content-name">Dragoș Roncu</h4>
-            <ul class="department-representatives-item-content-list">
-               <li>Coordonare eveniment MA</li>
-               <li>Reprezentare în relația cu terți</li>
-            </ul>
-         </div>
-      </div>
-      <div class="department-representatives-item">
-         <div class="department-representatives-item-img-wrapper"><img
-               src="https://carcluj.ro/sites/default/files/Ioana_Simea.jpg" /></div>
-         <div class="department-representatives-item-content">
-            <h3 class="department-representatives-item-content-title">Maraton Apuseni:</h3>
-            <h4 class="department-representatives-item-content-name">Ioana Maxim (Simi)</h4>
-            <ul class="department-representatives-item-content-list">
-               <li>Coordonare eveniment MA</li>
-               <li>Reprezentare în relația cu terți</li>
-            </ul>
-         </div>
-      </div>
-   </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Evidență membri:
+        </h3>
 
+        <h4 class="department-representatives-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/34">Maria Terec</a>
+        </h4>
 
-   <style type="text/css">
+        <ul class="department-representatives-item-content-list">
+          <li>Răspunde la mesajele de contact</li>
+          <li>Centralizare cereri înscriere membri noi</li>
+          <li>Verificare plată cotizație</li>
+          <li>Tipărire legitimații</li>
+        </ul>
+
+        <p>
+          Pentru afiș recomandam folosirea versiunii standard, care respecta
+          identitatea vizuala a CAR Cluj.
+        </p>
+      </div>
+    </div>
+
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img src="https://carcluj.ro/sites/default/files/OvidiuMotioc.jpg" />
+      </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Calendar si Program de activități:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/19">Ovidiu Motioc</a>
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>plan de activități</li>
+          <li>stimulare activități și departamente</li>
+          <li>parteneriate și sponsorizări</li>
+          <li>coordonare acțiuni de mediu și conștientizare</li>
+          <li>ateliere și activități indoor</li>
+          <li>redactare organigramă departamente</li>
+          <li>actualizare periodică în funcție de evoluția anuală</li>
+        </ul>
+      </div>
+    </div>
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2022-01/profil%20rev%201.jpg"
+        />
+      </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Comunicare externă:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/35">Mircea Ignat</a>
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>coordonare împăduriri în arii protejate, greu accesibile</li>
+          <li>atragere de fonduri pentru Refugiul Montan II</li>
+          <li>gestionare/reprezentare în relație cu terți</li>
+          <li>
+            recepționare mesaje și apeluri din exteriorul clubului (contact și
+            social media)
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAeAB4AAD/4QBaRXhpZgAATU0AKgAAAAgABQMBAAUAAAABAAAASgMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAASdFESAAQAAAABAAASdAAAAAAAAYagAACxj//bAEMACAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIALkAfwMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AIuP7q/lR8v91fypKWu05Q+Xuq0YX+4v5UlFAB8v9wUuVz9xaSq9xe21oMzzInsTzSbS3Glcs/L/AHFo+X+4K47UfF7LIyWiDaOjN1rCn8S6lM+TcMuOm04rJ1l0L9m+p6diP+4KPk/uCvLG1/U34N5L+dTweIdVjIIunYD15o9suwezPTPk/uCjCf3K5PTfGEcjLFfLsJ6SDp+NdSkiSoHjYMrdCDwauMlLYmUWtyTEf9yjbF/dptFUSO2w/wB2pLVIvtKfL6/yNQ1Lbf8AHyn4/wAqGBFRRRQAtFFZXiDUv7N0x3Q4mf5U+vrSk7K40ruxQ17xLHY7ra1+efueyf8A1641Z5r67LTOzseSSapOxLFmJJJySe9WbC3lnmBQHFcc5OWrOmEbbEE4KuQfWoc88HFdU+iRzKCxOcVB/wAI4hblzikmaOmznQx3dQfrUvOM5Cn2NbZ8MAn5ZyB9Kgl8PXCK2xw4HtTuieSSMZpT3YGtzw9r0mnTiN3zbseVJ4FYc1q8LEMCCKhHBqk+qM32Z7RFKk0SyxkFWGQRUlcF4S1w2862U8v7l+E3fwmu9rphLmRjJWYlTW3/AB8p+P8AI1FUtt/x8p+P8jVMkhpaKKACuK8bSlriCLPCqT+ddrXn3jRz/au3/ZAFZVvhNKe5z0MTXEwVc11un2q28QAHPesnRoFCmQjntW6pxj0rkk7s7qcLRLIxQOtRhs1IKZbRMvvTyF2HioFY5xUpzVIza1MPUrBJcnbg+tcxd2vlMcH8K7qQg5GK53W7XCeYvTNQnZiqRTic8nDDnB7V7DpzF9NtmLbiYlyfXivHgDmvU/DVy1zokBZSCg2fWumk9TkmtDXqW2/4+U/H+VRVLbf8fKfj/I1uzIioopaAErzDxHM1xrlyzdFbYPwr0+uA8Qw251kpFy7SAuPrWNbZGtLVjbGNobOMY+ZhxVl1Oz/j4Kv+lSTLsUbQeB0FZNxZyzwO7MwmLfKucACuLdnobRLQvpoH2ybWH94Vo28/nYINZdtaFNNxLuMuemcjFTaaHjbaTkGnqmVF8yL91I0AJHJrOGpXMkhBmVFq5cR+dlWOKy7zT1mtxHGu2QNnJ70a3E9EaiuHXKTZf3NNmjF5bPG4wSMH2NVINJMSQlHxKpyzA9fatNEZR8wGaXUndanCyxvBctGw5U4NesaJ5f8AYtp5Y+Xyx+fevOdZh2aozYyGwa9D0Bi2jQZUKAMAe1ddF6nFUjZGlUtt/wAfKfj/ACqOpLX/AI+U/H+RrdmBHRSClpgJXGajYsNceQj+IEH2rs+azNYt98aTAfMhwfpWVaN437G1CVpWfUxTgNzQVU9qJhh/Tim7wK4nuejFXQ2U4THAplsnz7qr3MzPOEX7o60RXwilwUIFSmrl200L8q4w1OEZZc4BqrJevKy7I9wzj0xUmXgIYHKnr7VTaFZlqNAOwH0pXxR56vGCAATUWc9KrToZ2fUy7qyN3qSc8YxXdWsIt7WOID7qgVzNpCZNQi4z81dXXRh1uzkxD2QVLbf8fKfj/Koqltf+PlPx/lW7OUjooopgFRXEfm28idyOKlooaurDTs7nKXSMkal1Ibpg1S3HHAro9XtvMtvMUZI61zqkBsGvOqxcXY9OjPmjciwpJzjPenKsRPOKbcQRyncNw+hxUKWqdNzgH3qEbrXcvo0aDAIpryqwxuBB7VFHaRqDyT9TU8MMcR3BBn6U3sS7IjhJBIPQdKsxjLAdyaawGcirmlQ+deKSPlTk0U027EVJWjdmhp+nPb3JlZ1ZQPlx1rUqtC8hu5VYYjHSrNejCKirI8ycnJ3YhzipbQg3EZHv/Ko6da/Ldp6HP8jTZI2iiimIKKKKAEIBGCODXI6hCsdzJ5fQHBHpXXN90444rgp7l4p3WQluTz3rkxUkrJnZhE7tok6ipEUE1TFyhPB/GpFuVHUgVypo7zQREApCRVX7Wn94UvmNJwo49armXQljyxZsCtrRWjSVkLAOw+UevrWJ5iQLyQW9Kt6I/n6ojN2BIop1FGaS3MasW4NnV4GcgUUUV6Z5gVJbjNyn4/yNRnORjp3qW2/4+U/H+RpMCKiiiqAWkooJAGScCkBFdMy2srJ94KSK88umLysfU10era5kiO2YhMkM3rXPyFfMPHWvJxdWM5rl6Hp4Wm4Ru+pSI5zyD7VIjJ0cgipSpHIGRTd645XFc/O7aHXYljmtouVQZ9zTzeSONqDr6cVBvjzwtODMei4qXOVhcqFCknLn8BWto08dteq8hwoGM+lZY461IrkfWpjNxkpLoKceaNmegqwdQykEEZBFLXO6RqywReRcE7R90+lb0U0cy7o3DL6g17lGvCrG6ep5FSlKDsx9S23/AB8p+P8AKo6ktv8Aj5T8f5GtWZleSWOIZkkVB7nFZl34isbbIWTzG9F/xrgpr+ec5klZvqarlya5JYmT2PVp5fFfG7nYP4omuSUt4xGB1Y8mqlzf3EseWkY496x9O5Z/wrQPTpXnV603KzZr7GEHoitI3zb8ZVuG9jTDyetSMrRklRuXuKjCq3KNj2NZJl2HDNHy9COaT516pkeopd3PKt+VAANueBTwaYCo6Z/KnAk8AfnSYBT1Pc0zBxknFOUc/KPxNSA8Mc56e1WYrqSH5kYqfY1XAA5PJoJ9aSbWwNXNEeJLu0dXlIlj6FSMH8DWzpfiiwubpFctE3P3hkdDXDX8n3U/E1FYH/T4vqf5GvSoVqiirsh4SnJXasVqSiimdhasZAlxg/xcVr1zwJUgjrW7BKJoVf161yYiNnzGVRdR+3vUbwgnOMH1FTUVyptGZW8tlPB4pQG9anNNKj0quYZFh/al2tjrUpKgc0gXdyenpRcCNVHoaePandeB0pGOFx3NK4DRkmkkdUUsx4FP+6lZN3cea+1fuD9a0pwc2VFXZFLJ5kjOe9TaeP8AiYRfU/yNVc5q1YcX8X1P8jXclY2exV70lFFUJaoKv6dNtkMRPDdPrVClVirBgeR0qJx5o2Bq6sdFRUUEomhVx361LXmtNOzMA9qaTS0h6UAhAMnJFOpKUmhhcToM0i8nNHWoriZbeLOfmPAFNRvog3K99c4/dIeT941mk0rMWYseSTSV3wgoqx0JWVhVxkevpVux/wCP+L6n+RqmDzmrlj/yEIvx/ka1RMil9KKZ2NL2NAkOoptFBRdsbjypdhPyt/OtftXOD7wreT/Vj6Vx4iKTuZ1NyTPajimUHrXOZj80lMXpTqAAkKuScAd6x7qczylv4RwBWjd/8e0lYrV1YeK3Naa6js0UyiumxpcfmrWnn/T4snuf5GqY61Z0/wD4/wCH8f8A0E0yXsf/2Q=="
+        />
+      </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Coordonator voluntari:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/10">Anca Brișan</a>
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>Responsabil coordonare voluntari</li>
+        </ul>
+      </div>
+    </div>
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2024-01/DRAGOS%20poza%20tip%20buletin.jpg"
+        />
+      </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Maraton Apuseni:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          Dragoș Roncu
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>Coordonare eveniment MA</li>
+          <li>Reprezentare în relația cu terți</li>
+        </ul>
+      </div>
+    </div>
+    <div class="department-representatives-item">
+      <div class="department-representatives-item-img-wrapper">
+        <img src="https://carcluj.ro/sites/default/files/Ioana_Simea.jpg" />
+      </div>
+      <div class="department-representatives-item-content">
+        <h3 class="department-representatives-item-content-title">
+          Maraton Apuseni:
+        </h3>
+        <h4 class="department-representatives-item-content-name">
+          Ioana Maxim (Simi)
+        </h4>
+        <ul class="department-representatives-item-content-list">
+          <li>Coordonare eveniment MA</li>
+          <li>Reprezentare în relația cu terți</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <style type="text/css">
+    .department-heads-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+
+    .department-heads-item-content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .department-heads-item
+      .department-heads-item-content
+      ul.department-heads-item-content-list {
+      padding: 0;
+    }
+
+    h3.department-heads-item-content-title {
+      margin: 0;
+    }
+
+    article.node
+      .node-content
+      .field--name-body
+      h3.department-heads-item-content-title
+      a {
+      font-weight: 600;
+    }
+
+    h4.department-heads-item-content-name,
+    h4.department-heads-item-content-name a {
+      font-weight: 300;
+    }
+
+    h4.department-heads-item-content-name {
+      margin: 0;
+    }
+
+    .department-heads-item-img-wrapper {
+      max-width: 128px;
+      min-width: 128px;
+      padding-left: 20px;
+    }
+
+    .department-heads-item-img-wrapper img {
+      width: 100%;
+      height: auto;
+    }
+
+    .department-heads-item-content-title-icon {
+      display: inline-flex;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+
+    .department-heads-item-content-title-icon svg {
+      fill: #fff;
+    }
+
+    @media (min-width: 600px) {
       .department-heads-item {
-         display: flex;
-         flex-direction: column;
-         margin-bottom: 50px;
+        flex-direction: row;
       }
 
       .department-heads-item-content {
-         padding-left: 20px;
-         padding-right: 20px
-      }
-
-      .department-heads-item .department-heads-item-content ul.department-heads-item-content-list {
-         padding: 0;
-      }
-
-      h3.department-heads-item-content-title {
-         margin: 0;
-      }
-
-      article.node .node-content .field--name-body h3.department-heads-item-content-title a {
-         font-weight: 600;
-      }
-
-      h4.department-heads-item-content-name,
-      h4.department-heads-item-content-name a {
-         font-weight: 300;
-      }
-
-      h4.department-heads-item-content-name {
-         margin: 0;
+        padding-left: 50px;
       }
 
       .department-heads-item-img-wrapper {
-         max-width: 128px;
-         min-width: 128px;
-         padding-left: 20px;
+        padding-left: 0;
       }
+    }
+  </style>
 
-      .department-heads-item-img-wrapper img {
-         width: 100%;
-         height: auto;
-      }
+  <p>
+    Atenție! Contactele de mai jos sunt disponibile doar utilizatorilor logați
+    ai siteului
+  </p>
 
-      .department-heads-item-content-title-icon {
-         display: inline-flex;
-         border-radius: 8px;
-         width: 40px;
-         height: 40px;
-         justify-content: center;
-         align-content: center;
-         align-items: center;
-      }
+  <div class="department-heads">
+    <h2>Responsabili departamente:</h2>
 
-      .department-heads-item-content-title-icon svg {
-         fill: #fff;
-      }
-
-      @media (min-width: 600px) {
-         .department-heads-item {
-            flex-direction: row;
-         }
-
-         .department-heads-item-content {
-            padding-left: 50px;
-         }
-
-         .department-heads-item-img-wrapper {
-            padding-left: 0;
-         }
-      }
-   </style>
-
-   <p>Atenție! Contactele de mai jos sunt disponibile doar utilizatorilor logați ai siteului</p>
-
-   <div class="department-heads">
-      <h2>Responsabili departamente:</h2>
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src='https://carcluj.ro/sites/default/files/pictures/2022-01/vidra%20photo_0.jpg' />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories[]=6">
-                  <div style="background: #4CC5FF" class="department-heads-item-content-title-icon">
-                     <svg width="25" viewBox="0 0 222 170" fill="#FFF">
-                        <path class="ski_svg__shp0"
-                           d="M50.2 1.34c-.9-.22-1.88.02-2.6.54-.74.56-1.19 1.42-1.22 2.35-.38 9.15.46 17.72 2.5 25.51.8 2.94 2.12 5.68 3.92 8.12 8.32 11.36 41.86 56.92 94.45 128.3 2.29 3.1 6.67 3.77 9.77 1.48l17.09-12.6c3.11-2.28 3.77-6.66 1.49-9.76L80.93 16.8c-1.75-2.38-3.9-4.41-6.48-6.09C67.96 6.8 59.8 3.66 50.2 1.34zm98.59 9.37c-2.58 1.68-4.73 3.71-6.48 6.09L47.65 145.28c-2.29 3.1-1.62 7.48 1.48 9.76l17.1 12.6c3.1 2.29 7.48 1.62 9.76-1.48 52.59-71.38 86.13-116.94 94.45-128.3a24.67 24.67 0 003.93-8.12c2.03-7.79 2.87-16.36 2.5-25.51a3.11 3.11 0 00-1.23-2.35c-.72-.52-1.69-.76-2.59-.54-9.61 2.32-17.77 5.47-24.26 9.37zM34.76 144.06c-4.27-2.7-8.64-4.22-13.06-4.7V37.39h4.15c1.72 0 3.1-1.39 3.1-3.1 0-1.71-1.38-3.1-3.1-3.1H21.7V16.16c0-1.71-1.39-3.09-3.1-3.09-1.71 0-3.1 1.38-3.1 3.09v15.03h-4.15c-1.71 0-3.1 1.39-3.1 3.1 0 1.71 1.39 3.1 3.1 3.1h4.15V139.4c-4.28.53-8.61 2.04-12.97 4.62a3.082 3.082 0 00-1.42 3.48 3.103 3.103 0 002.99 2.29h11.4v11.4c0 1.71 1.39 3.1 3.1 3.1 1.71 0 3.1-1.39 3.1-3.1v-11.4h11.41c1.37 0 2.59-.92 2.97-2.24.39-1.33-.15-2.75-1.32-3.49zm184.09-.04c-4.37-2.57-8.7-4.08-12.98-4.62V37.39h4.48c1.71 0 3.1-1.38 3.1-3.1 0-1.71-1.39-3.1-3.1-3.1h-4.48V16.17c0-1.71-1.39-3.1-3.1-3.1-1.72 0-3.1 1.39-3.1 3.1v15.02h-3.82c-1.71 0-3.1 1.39-3.1 3.1 0 1.72 1.39 3.1 3.1 3.1h3.82v101.98c-4.43.47-8.79 2-13.06 4.7-1.17.74-1.7 2.15-1.32 3.48.38 1.33 1.6 2.24 2.98 2.24h11.4v11.4c0 1.71 1.38 3.1 3.1 3.1 1.71 0 3.1-1.39 3.1-3.1v-11.4h11.4c1.4 0 2.62-.94 2.99-2.29.37-1.35-.21-2.78-1.41-3.48z">
-                        </path>
-                     </svg>
-                  </div>
-                  Schi
-               </a>
-
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/27">Radu
-                  Vidra</a></h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de schi</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-               <li>Atragerea de fonduri pentru schi</li>
-            </ul>
-         </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2022-01/vidra%20photo_0.jpg"
+        />
       </div>
-
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/pictures/2022-01/profil%20rev%201.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=1">
-                  <div style="background: #175d9f" class="department-heads-item-content-title-icon">
-                     <svg width="25" viewBox="0 0 187 187" fill="#FFF">
-                        <path class="ice-pick_svg__shp0"
-                           d="M77 169.79c0 8.94 7.27 16.21 16.2 16.21 8.94 0 16.21-7.27 16.21-16.21v-30.25H77v30.25zm0-125.74h32.41V1.59H77v42.46zm40.38-3.82l68.03 5.41V35.17l-13.9-17.09-54.13-10.64v32.79zM14.9 18.08L1 35.17v10.47l68.03-5.41V7.44L14.9 18.08zM77 52.01h32.41v79.56H77V52.01z">
-                        </path>
-                     </svg>
-                  </div>
-                  Alpinism
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/35">Mircea
-                  Ignat</a></h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de alpinism</li>
-               <li>Atragerea de fonduri pentru alpinism</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-            </ul>
-         </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories[]=6"
+          >
+            <div
+              style="background: #4cc5ff"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg width="25" viewBox="0 0 222 170" fill="#FFF">
+                <path
+                  class="ski_svg__shp0"
+                  d="M50.2 1.34c-.9-.22-1.88.02-2.6.54-.74.56-1.19 1.42-1.22 2.35-.38 9.15.46 17.72 2.5 25.51.8 2.94 2.12 5.68 3.92 8.12 8.32 11.36 41.86 56.92 94.45 128.3 2.29 3.1 6.67 3.77 9.77 1.48l17.09-12.6c3.11-2.28 3.77-6.66 1.49-9.76L80.93 16.8c-1.75-2.38-3.9-4.41-6.48-6.09C67.96 6.8 59.8 3.66 50.2 1.34zm98.59 9.37c-2.58 1.68-4.73 3.71-6.48 6.09L47.65 145.28c-2.29 3.1-1.62 7.48 1.48 9.76l17.1 12.6c3.1 2.29 7.48 1.62 9.76-1.48 52.59-71.38 86.13-116.94 94.45-128.3a24.67 24.67 0 003.93-8.12c2.03-7.79 2.87-16.36 2.5-25.51a3.11 3.11 0 00-1.23-2.35c-.72-.52-1.69-.76-2.59-.54-9.61 2.32-17.77 5.47-24.26 9.37zM34.76 144.06c-4.27-2.7-8.64-4.22-13.06-4.7V37.39h4.15c1.72 0 3.1-1.39 3.1-3.1 0-1.71-1.38-3.1-3.1-3.1H21.7V16.16c0-1.71-1.39-3.09-3.1-3.09-1.71 0-3.1 1.38-3.1 3.09v15.03h-4.15c-1.71 0-3.1 1.39-3.1 3.1 0 1.71 1.39 3.1 3.1 3.1h4.15V139.4c-4.28.53-8.61 2.04-12.97 4.62a3.082 3.082 0 00-1.42 3.48 3.103 3.103 0 002.99 2.29h11.4v11.4c0 1.71 1.39 3.1 3.1 3.1 1.71 0 3.1-1.39 3.1-3.1v-11.4h11.41c1.37 0 2.59-.92 2.97-2.24.39-1.33-.15-2.75-1.32-3.49zm184.09-.04c-4.37-2.57-8.7-4.08-12.98-4.62V37.39h4.48c1.71 0 3.1-1.38 3.1-3.1 0-1.71-1.39-3.1-3.1-3.1h-4.48V16.17c0-1.71-1.39-3.1-3.1-3.1-1.72 0-3.1 1.39-3.1 3.1v15.02h-3.82c-1.71 0-3.1 1.39-3.1 3.1 0 1.72 1.39 3.1 3.1 3.1h3.82v101.98c-4.43.47-8.79 2-13.06 4.7-1.17.74-1.7 2.15-1.32 3.48.38 1.33 1.6 2.24 2.98 2.24h11.4v11.4c0 1.71 1.38 3.1 3.1 3.1 1.71 0 3.1-1.39 3.1-3.1v-11.4h11.4c1.4 0 2.62-.94 2.99-2.29.37-1.35-.21-2.78-1.41-3.48z"
+                ></path>
+              </svg>
+            </div>
+            Schi
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/27">Radu Vidra</a>
+        </h4>
+        <ul>
+          <li>Propuneri de activități în cadrul departamentului de schi</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+          <li>Atragerea de fonduri pentru schi</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/tincu%252Baida.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=4">
-                  <div style="background: rgb(128, 64, 64)" class="department-heads-item-content-title-icon">
-                     <svg width="25" viewBox="0 0 168 210" fill="#FFF">
-                        <path fill-rule="evenodd"
-                           d="M159.3 95.19l-2.95 17.89-3.43-.57a39.12 39.12 0 01-13.07 21.99 39.101 39.101 0 01-25.18 9.2c-9.2 0-18.14-3.27-25.17-9.2a39.12 39.12 0 01-13.07-21.99l24.74-4.09a13.981 13.981 0 0013.5 10.25c6.37 0 11.83-4.23 13.5-10.25l-3.53-.58 2.96-17.89 31.7 5.24zm-30.34-13.47l2.12-12.82 31.7 5.24-2.12 12.82-31.7-5.24zm38.14-33.7l-2.96 17.89-31.7-5.24 2.95-17.89 3.96.65.36-2.14c.65-3.78-.36-7.47-2.83-10.4-2.47-2.93-5.95-4.55-9.78-4.55h-24.85c-3.84 0-7.31 1.62-9.78 4.55-2.47 2.93-3.48 6.62-2.83 10.4l.36 2.14-24.69 4.08-.34-2.01a37.732 37.732 0 018.37-30.75 37.732 37.732 0 0128.91-13.43h24.85c11.17 0 21.7 4.89 28.91 13.43a37.732 37.732 0 018.37 30.75l-.34 2.01 3.06.51zm-67.4 52.19L75 104.29l-8.29-48.55 24.7-4.09 8.29 48.56z">
-                        </path>
-                        <path fill-rule="evenodd" class="carbines_svg__shp0"
-                           d="M54.74 160.2l8.57 15.98-3.15 1.7c3.52 5.15 10.05 7.4 16.08 5.35 6.03-2.06 9.83-7.83 9.47-14.06l24.74-4.11c1.1 8.68-.75 17.51-5.27 25.03a39.167 39.167 0 01-20.87 16.83 39.193 39.193 0 01-26.8-.59 39.182 39.182 0 01-19.46-16.6l-3.06 1.64-8.57-15.98 28.32-15.19zm-32.26 7.84l-6.14-11.45 28.32-15.18 6.14 11.44-28.32 15.19zM6.56 131.79L5.59 130A37.777 37.777 0 013.6 98.18a37.755 37.755 0 0123.03-22.03l23.53-8.02a37.736 37.736 0 0131.69 3.4c9.57 5.75 16.07 15.38 17.85 26.41l.32 2.01-24.69 4.1-.35-2.14c-.6-3.79-2.75-6.96-6.03-8.94-3.29-1.97-7.09-2.38-10.72-1.15L34.7 99.84c-3.63 1.24-6.39 3.88-7.79 7.45-1.39 3.57-1.15 7.39.68 10.76l1.03 1.91 3.53-1.89 8.57 15.98-28.32 15.19-8.57-15.98 2.73-1.47zm70.09-19.5l24.69-4.1 7.81 48.63-24.69 4.1-7.81-48.63z">
-                        </path>
-                     </svg>
-                  </div>
-                  Escalada
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/26">Aida
-                  Tincu</a></h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de escaladă</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-               <li>Atragerea de fonduri pentru escaladă</li>
-            </ul>
-         </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2022-01/profil%20rev%201.jpg"
+        />
       </div>
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/OvidiuMotioc.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=3">
-                  <div style="background: #5B9D52" class="department-heads-item-content-title-icon">
-                     <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 163">
-                        <path
-                           d="M164.45 114.58C164.45 99.92 152.37 88.09 137.71 88.09L100.12 88.66C98.62 88.64 97.13 88.52 95.64 88.28C95.62 88.31 95.6 88.29 95.57 88.32L83.57 100.33C82.73 101.15 80.81 101.14 79.99 100.3C79.17 99.47 78.6 97.01 79.42 96.18L89.06 86.54C86.52 85.73 85.8 85.16 83.56 83.72L73.93 93.36C73.11 94.2 70.63 95.35 69.78 94.53C68.94 93.71 67.79 91.23 68.61 90.38L68.65 90.34L78.97 80.02C76.82 78.18 76.06 77.19 74.49 74.85L64.95 84.95C64.13 85.78 61.08 86.34 60.26 85.52C59.43 84.69 58.86 81.65 59.69 80.82C59.69 80.81 59.7 80.81 59.71 80.8L71.24 69.88C69.27 65.72 68.83 61.74 68.87 57.13L68.87 34.64L1 34.64L1 139.62L164.45 139.62L164.45 114.58Z" />
-                        <path class="shp0"
-                           d="M1 26.98L68.87 26.98L68.87 9.82C68.87 6.74 66.37 4.24 63.29 4.24L6.58 4.24C3.5 4.24 1 6.74 1 9.82L1 26.98ZM7.49 162L41.06 162C44.64 162 47.55 159.09 47.55 155.51L47.55 147.08L1 147.08L1 155.51C1 159.09 3.91 162 7.49 162ZM88.5 162L157.96 162C161.54 162 164.44 159.09 164.44 155.51L164.44 147.08L82.01 147.08L82.01 155.51C82.01 159.09 84.92 162 88.5 162Z" />
-                     </svg>
-                  </div>
-                  Drumeție
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/19">Ovidiu
-                  Motioc</a></h4>
-            <ul>
-               <li>Atragerea de fonduri pentru drumeție</li>
-               <li>Propuneri de activități în cadrul departamentului de drumeție</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-            </ul>
-         </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=1"
+          >
+            <div
+              style="background: #175d9f"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg width="25" viewBox="0 0 187 187" fill="#FFF">
+                <path
+                  class="ice-pick_svg__shp0"
+                  d="M77 169.79c0 8.94 7.27 16.21 16.2 16.21 8.94 0 16.21-7.27 16.21-16.21v-30.25H77v30.25zm0-125.74h32.41V1.59H77v42.46zm40.38-3.82l68.03 5.41V35.17l-13.9-17.09-54.13-10.64v32.79zM14.9 18.08L1 35.17v10.47l68.03-5.41V7.44L14.9 18.08zM77 52.01h32.41v79.56H77V52.01z"
+                ></path>
+              </svg>
+            </div>
+            Alpinism
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/35">Mircea Ignat</a>
+        </h4>
+        <ul>
+          <li>Propuneri de activități în cadrul departamentului de alpinism</li>
+          <li>Atragerea de fonduri pentru alpinism</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+        </ul>
       </div>
+    </div>
 
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/pictures/2023-04/AlinaCirja.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=5">
-                  <div style="background: #FF336A" class="department-heads-item-content-title-icon">
-                     <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 174">
-                        <path fill-rule="evenodd" class="shp0"
-                           d="M77.97 143.67C77.39 143.6 76.82 143.51 76.25 143.42L84.63 124.12L79.13 111.43L67.96 119.71L65.65 140.58C65.11 140.38 64.58 140.17 64.05 139.95L66.16 121.06L50.96 132.37C50.51 132.02 50.05 131.65 49.61 131.29L66.41 118.81L67.92 105.04L54.18 106.58L41.85 123.49C41.49 123.04 41.13 122.59 40.78 122.14L51.93 106.84L33.19 108.95C32.97 108.41 32.76 107.86 32.55 107.32L53.27 104.99L61.39 93.86L48.72 88.21L29.68 96.72C29.59 96.14 29.5 95.55 29.42 94.97L46.66 87.35L29.37 79.7C29.44 79.12 29.53 78.53 29.62 77.95L48.73 86.43L61.29 80.87L53.1 69.58L32.43 67.25C32.63 66.71 32.84 66.17 33.05 65.64L51.75 67.77L40.55 52.4C40.91 51.94 41.26 51.49 41.63 51.04L53.99 68L67.61 69.53L66.09 55.63L49.34 43.19C49.78 42.82 50.23 42.45 50.68 42.1L65.82 53.37L63.73 34.44C64.27 34.22 64.8 34 65.35 33.8L67.65 54.73L78.66 62.94L84.25 50.14L75.84 30.92C76.41 30.82 76.99 30.73 77.56 30.65L85.11 48.07L92.67 30.59C93.25 30.67 93.83 30.75 94.4 30.84L86.01 50.15L91.52 62.84L102.69 54.57L104.98 33.66C105.52 33.86 106.05 34.07 106.58 34.29L104.49 53.2L119.69 41.89C120.14 42.24 120.59 42.6 121.04 42.97L104.25 55.46L102.72 69.23L116.47 67.69L128.81 50.78C129.17 51.22 129.53 51.67 129.88 52.12L118.73 67.42L137.47 65.31C137.68 65.84 137.89 66.38 138.1 66.93L117.38 69.27L109.26 80.4L121.93 86.04L140.95 77.51C141.04 78.09 141.13 78.67 141.21 79.25L123.97 86.88L141.26 94.52C141.19 95.11 141.1 95.69 141.01 96.27L121.91 87.83L109.35 93.39L117.55 104.68L138.23 106.99C138.03 107.54 137.83 108.07 137.61 108.61L118.9 106.49L130.09 121.85C129.74 122.31 129.38 122.77 129.02 123.22L116.66 106.26L103.03 104.71L104.56 118.61L121.3 131.07C120.86 131.44 120.42 131.8 119.97 132.16L104.83 120.89L106.92 139.82C106.38 140.04 105.85 140.25 105.31 140.46L103 119.52L91.98 111.32L86.4 124.12L94.81 143.36C94.24 143.45 93.66 143.54 93.08 143.62L85.54 126.2L77.97 143.67ZM80.49 110.39L85.57 122.04L90.6 110.28L85.61 106.56L80.49 110.39ZM69.54 104.83L68.14 117.46L78.27 109.87L75.89 104.12L69.54 104.83ZM92.6 109.65L102.79 117.28L101.38 104.54L95.26 103.85L92.6 109.65ZM55.51 104.74L68.11 103.31L68.8 97.15L62.96 94.51L55.51 104.74ZM102.14 96.66L102.84 103.08L115.34 104.49L107.82 94.25L102.14 96.66ZM50.78 87.27L62.41 92.47L66.09 87.42L62.31 82.25L50.78 87.27ZM104.55 86.83L108.34 92.01L119.87 86.99L108.24 81.79L104.55 86.83ZM62.82 80L68.51 77.6L67.8 71.18L55.31 69.77L62.82 80ZM102.54 70.94L101.85 77.1L107.68 79.79L115.12 69.52L102.54 70.94ZM69.31 69.73L75.42 70.43L77.96 64.53L67.9 56.99L69.31 69.73ZM92.37 64.45L94.75 70.2L101.11 69.49L102.5 56.86L92.37 64.45ZM80.05 63.98L85.03 67.69L90.16 63.86L85.08 52.22L80.05 63.98ZM99.86 88.97C99.46 88.8 99.06 88.61 98.68 88.41C98.53 88.33 98.36 88.21 98.31 88.06C98.08 87.44 98.31 86.92 98.92 86.63C99.01 86.58 99.1 86.54 99.2 86.5C100.42 85.94 100.34 86.25 100.04 84.65C100.03 84.63 100.01 84.61 99.93 84.5C99.45 84.43 98.9 84.32 98.35 84.29C97.8 84.25 97.73 83.84 97.58 83.46C97.43 83.07 97.59 82.82 97.87 82.58C98.27 82.23 98.66 81.86 99.05 81.49C98.91 81.16 98.8 80.9 98.69 80.64C98.53 80.26 98.28 80.08 97.84 80.21C97.48 80.32 97.1 80.39 96.71 80.44C96.52 80.47 96.28 80.46 96.13 80.37C95.58 80.01 95.48 79.46 95.82 78.86C95.87 78.77 95.92 78.68 95.97 78.58C96.56 77.46 96.56 77.46 95.61 76.62C95.56 76.58 95.47 76.57 95.38 76.53C95.14 76.66 94.89 76.8 94.65 76.93C94.4 77.07 94.14 77.2 93.91 77.35C93.66 77.51 93.46 77.5 93.21 77.32C92.52 76.84 92.5 76.8 92.68 75.91C92.98 74.49 92.98 74.49 91.54 73.96C91.2 74.34 90.85 74.75 90.48 75.13C90.33 75.28 90.11 75.45 89.92 75.46C89.23 75.49 88.84 75.1 88.76 74.41C88.71 73.92 88.64 73.44 88.58 73.02C88.46 72.95 88.42 72.91 88.37 72.9C87.04 72.69 87.21 72.38 86.62 73.77C86.19 74.78 86.18 74.78 85.08 74.7C85.03 74.69 84.98 74.66 84.89 74.63C84.66 74.15 84.4 73.65 84.17 73.13C84.02 72.79 83.81 72.65 83.45 72.75C83.3 72.79 83.14 72.83 83 72.84C82.57 72.85 82.42 73.1 82.39 73.49C82.36 73.88 82.28 74.26 82.27 74.65C82.27 75.16 81.92 75.24 81.54 75.38C81.13 75.53 80.86 75.45 80.6 75.13C80.25 74.72 79.88 74.34 79.5 73.93C79.18 74.09 78.91 74.24 78.63 74.36C78.25 74.52 78.16 74.8 78.25 75.17C78.33 75.58 78.41 75.99 78.51 76.39C78.63 76.91 78.18 77.03 77.92 77.29C77.68 77.52 77.44 77.52 77.16 77.35C76.66 77.04 76.14 76.77 75.81 76.58C75.33 76.95 74.95 77.25 74.57 77.54C74.93 78.24 75.27 78.87 75.58 79.47C74.84 80.68 74.92 80.56 73.87 80.34C72.6 80.07 72.6 80.07 72.1 81.32C72.08 81.37 72.1 81.43 72.11 81.55C72.46 81.88 72.84 82.27 73.25 82.62C73.5 82.85 73.67 83.05 73.51 83.41C73.35 83.78 73.34 84.24 72.78 84.28C72.37 84.3 71.97 84.35 71.56 84.41C71.23 84.46 70.97 84.58 70.96 84.98C70.96 85.16 70.89 85.34 70.86 85.52C70.79 85.84 70.9 86.06 71.21 86.19C71.64 86.37 72.06 86.56 72.47 86.78C73 87.07 73 88.1 72.47 88.38C72.04 88.61 71.6 88.81 71.15 89.01C70.9 89.12 70.8 89.3 70.85 89.57C70.89 89.74 70.93 89.92 70.96 90.1C71.09 90.7 71.09 90.7 71.7 90.77C72.2 90.83 72.71 90.9 73.22 90.96C73.3 91.17 73.35 91.35 73.43 91.51C73.67 91.97 73.58 92.32 73.15 92.64C72.75 92.95 72.41 93.33 72.1 93.63C72.1 93.76 72.09 93.79 72.1 93.81C72.6 95.08 72.64 95.12 73.94 94.82C74.9 94.6 74.79 94.49 75.47 95.47C75.52 95.53 75.53 95.61 75.57 95.71C75.25 96.33 74.92 96.97 74.6 97.59C74.96 97.98 75.28 98.33 75.6 98.68C76.28 98.31 76.89 97.98 77.48 97.66C78.61 98.23 78.62 98.24 78.38 99.37C78.09 100.69 78.1 100.52 79.25 101.1C79.33 101.14 79.43 101.15 79.56 101.19C79.85 100.88 80.13 100.58 80.4 100.27C81 99.58 81 99.57 81.82 99.88C81.94 99.92 82.05 99.98 82.21 100.06C82.27 100.59 82.34 101.13 82.4 101.66C82.43 101.92 82.46 102.17 82.77 102.28C83.71 102.62 83.95 102.53 84.36 101.62C84.46 101.41 84.58 101.21 84.64 100.99C84.78 100.54 85.06 100.42 85.51 100.42C85.97 100.42 86.29 100.51 86.45 101C86.57 101.37 86.77 101.7 86.92 102.06C87.04 102.38 87.26 102.5 87.58 102.41C87.73 102.38 87.88 102.32 88.03 102.32C88.45 102.32 88.63 102.09 88.67 101.71C88.71 101.29 88.76 100.88 88.79 100.47C88.84 99.93 89.28 99.88 89.66 99.73C90.02 99.58 90.22 99.74 90.45 100C90.81 100.43 91.2 100.82 91.55 101.19C91.7 101.15 91.76 101.15 91.8 101.13C92.97 100.61 93.01 100.6 92.69 99.37C92.5 98.63 92.62 98.12 93.3 97.77C93.37 97.73 93.44 97.7 93.55 97.64C94.16 97.96 94.79 98.3 95.41 98.63C96.61 97.78 96.63 97.72 95.94 96.53C95.89 96.45 95.85 96.35 95.79 96.26C95.48 95.85 95.51 95.51 95.85 95.09C96.14 94.73 96.41 94.6 96.83 94.75C96.95 94.79 97.08 94.8 97.2 94.83C98.49 95.04 98.49 95.04 99.02 93.66C98.63 93.29 98.27 92.93 97.88 92.6C97.54 92.31 97.51 92.01 97.61 91.57C97.76 90.97 98.16 90.88 98.63 90.82C99.1 90.76 99.57 90.71 100.05 90.65C100.11 90.25 100.13 89.94 100.21 89.64C100.29 89.3 100.16 89.11 99.86 88.97Z" />
-                        <path fill-rule="evenodd" class="shp0"
-                           d="M170.98 82.09L170.98 92.22L170.14 93.07C166.27 93.07 166.73 94.28 166.27 97.88C165.98 99.72 165.08 102.5 167.65 103.18L169.31 103.89C169.39 104.1 169.39 104.33 169.31 104.54L166.75 114.22L166.35 114.74C166.14 114.82 165.91 114.82 165.7 114.74C162.01 113.63 161.98 115.29 160.72 118.35C159.92 120.15 158.32 122.55 160.72 123.89C161.23 124.23 162.43 124.75 162.01 125.57L157.03 134.36C156.91 134.55 156.72 134.7 156.49 134.76C155.45 135.03 153.3 132.22 151.51 134.88L148.45 138.89C147 140.65 148.52 142.06 149.45 143L149.45 144.23L142.45 151.49L141.22 151.49C138.45 148.75 137.98 149.86 135.12 152.11C133.57 153.32 131.03 154.58 132.43 156.93C132.78 157.5 133.57 158.57 132.66 159.08L124.07 164.12L123.42 164.12C122.56 163.86 121.96 160.45 119.23 161.7L116.87 162.72C115.11 163.46 112.32 164.03 113 166.6C113.2 167.32 113.73 168.5 112.7 168.78L103.13 171.37L102.08 170.77C101.1 167.04 100.04 167.76 96.51 168.23C94.67 168.47 91.78 168.28 91.78 170.95C91.76 171.69 91.99 173 90.91 173L80.94 173L80.09 172.14C80.09 168.23 78.9 168.7 75.34 168.23C73.51 167.94 70.77 167.04 70.09 169.62L69.39 171.3C69.18 171.39 68.95 171.39 68.74 171.3L59.17 168.72L58.65 168.31C58.57 168.1 58.57 167.87 58.65 167.66C59.65 163.91 58.4 164 55.08 162.62C53.29 161.81 50.91 160.2 49.58 162.62C49.25 163.14 48.75 164.35 47.92 163.93L39.23 158.89C38.28 158.36 39.14 157.28 39.49 156.68C40.81 154.37 38.26 153.1 36.75 151.92C35.24 150.75 33.36 148.58 31.5 150.46C31 150.95 30.2 152.07 29.44 151.3L22.39 144.23L22.39 142.94C25.1 140.13 24 139.66 21.78 136.77C20.58 135.21 19.33 132.64 17 134.05C16.44 134.41 15.38 135.21 14.88 134.29L9.89 125.61L9.89 124.95C10.14 124.08 13.52 123.47 12.29 120.72L11.17 118.47C10.44 116.69 9.88 113.87 7.33 114.55C6.62 114.76 5.46 115.29 5.17 114.25L2.61 104.58L3.21 103.52C6.88 102.53 6.19 101.45 5.72 97.89C5.49 96.03 5.67 93.11 3.03 93.11C2.31 93.09 1 93.33 1 92.23L1 82.16L1.85 81.3C5.72 81.3 5.25 80.09 5.72 76.5C6 74.65 6.9 71.88 4.34 71.19L2.68 70.48C2.6 70.27 2.6 70.04 2.68 69.83L5.24 60.16L5.64 59.64L7.4 59.85C9.94 60.54 10.44 57.75 11.24 55.94C12.04 54.13 13.63 51.72 11.24 50.38C10.72 50.05 9.53 49.52 9.94 48.7L14.93 39.92C15.46 38.96 16.52 39.83 17.12 40.19C19.47 41.53 20.66 38.93 21.82 37.42C22.99 35.9 25.12 33.99 23.27 32.11L22.44 31.25L22.44 30.03L29.44 22.99L30.72 22.99C33.49 25.73 33.96 24.58 36.82 22.37C38.36 21.16 40.9 19.9 39.51 17.55C39.14 16.93 38.38 15.95 39.28 15.4L47.87 10.36L49.05 10.68C49.68 11.82 50.66 13.63 52.7 12.69L55.02 11.69C56.74 10.96 59.57 10.38 58.89 7.81C58.69 7.07 58.15 5.89 59.19 5.61L68.74 3.02L69.79 3.62C70.77 7.35 71.85 6.63 75.36 6.16C77.2 5.93 80.09 6.11 80.09 3.44C80.11 2.72 79.88 1.39 80.96 1.39L90.93 1.39L91.79 2.11C91.79 6.03 92.99 5.56 96.55 6.03C98.38 6.31 101.12 7.22 101.8 4.63L102.5 2.95C102.71 2.87 102.94 2.87 103.15 2.95L112.72 5.54L113.23 5.94C113.32 6.15 113.32 6.39 113.23 6.6C112.14 10.33 113.78 10.36 116.81 11.64C118.6 12.44 120.98 14.05 122.31 11.64C122.64 11.11 123.15 9.91 123.97 10.33L132.66 15.36C133.61 15.9 132.74 16.98 132.4 17.58C131.08 19.95 133.63 21.16 135.14 22.33C136.65 23.51 138.53 25.68 140.39 23.79C140.89 23.31 141.69 22.18 142.45 22.96L149.5 30.03L149.5 31.32C146.79 34.12 147.9 34.59 150.11 37.48C151.31 39.04 152.56 41.61 154.88 40.2C155.46 39.85 156.48 39.04 157.01 39.97L161.99 48.65L161.99 49.31C161.74 50.18 158.37 50.78 159.6 53.54L160.63 55.89C161.36 57.67 161.93 60.49 164.47 59.8C165.19 59.6 166.35 59.06 166.63 60.11L169.19 69.78L168.59 70.84C164.92 71.83 165.62 72.9 166.08 76.46C166.32 78.33 166.13 81.25 168.78 81.25C169.49 81.25 170.79 81.03 170.98 82.09ZM133.33 47.52C111.7 21.08 72.96 17.38 46.8 39.24L46.58 39.43C45.09 40.68 43.66 42 42.3 43.38C18.34 67.69 18.42 107.02 42.47 131.23C66.53 155.43 105.44 155.35 129.4 131.05L129.4 131.06C151.85 108.41 153.55 72.22 133.33 47.52Z" />
-                     </svg>
-                  </div>
-                  MTB
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/29">Alina
-                  Cîrja</a></h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de MTB</li>
-               <li>Atragerea de fonduri pentru MTB</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-            </ul>
-         </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img src="https://carcluj.ro/sites/default/files/tincu%252Baida.jpg" />
       </div>
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/VEZE.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=2">
-                  <div style="background: #EB143F" class="department-heads-item-content-title-icon">
-                     <svg width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 155">
-                        <path fill-rule="evenodd" class="shp0"
-                           d="M212.02 123.86L145.2 123.86L119.35 108.98L128.04 100.12C129.48 98.61 129.42 96.23 127.91 94.79C126.43 93.38 124.11 93.41 122.66 94.84L112.61 105.09L98.29 96.84L112.65 85.35C114.27 84.05 114.53 81.68 113.23 80.05C111.93 78.43 109.56 78.16 107.94 79.47L91.27 92.8L79 85.74L97.61 70.23C99.22 68.9 99.43 66.52 98.1 64.92C96.77 63.32 94.39 63.1 92.79 64.44L72.04 81.73L66.21 78.38L66.82 63.92C68.22 53.49 63.85 43.14 55.42 36.86L42.58 27.32L47.43 19.7L80.78 39.71C81.23 39.97 81.73 40.13 82.24 40.18C82.33 40.18 82.41 40.21 82.5 40.22C82.59 40.23 82.65 40.25 82.72 40.25C83.19 40.25 83.65 40.16 84.08 40L122.25 25.28C122.95 25.01 123.74 25.1 124.35 25.52C124.98 25.94 125.34 26.65 125.34 27.4L125.34 31.55L111.77 41.72C110.11 42.97 109.77 45.33 111.02 47C111.03 47.01 111.04 47.02 111.05 47.03L148.73 96.02C149.7 97.29 151.38 97.81 152.9 97.29L163.5 93.76L197.36 96.18C205.6 96.79 211.98 103.64 212.02 111.9L212.02 123.86ZM58.91 0.76L80.09 12.13C83.02 13.68 84.49 17.06 83.62 20.26L80.51 30.75L58.88 17.78L51.39 13.29L58.91 0.76ZM36.6 36.72L38.53 33.71L50.92 42.93C57.23 47.66 60.45 55.47 59.32 63.28L58.85 74.16L25.18 54.76L36.6 36.72ZM196.94 146.46L141.71 146.46L9.83 73.36L17.44 59.05L142.3 130.89C142.88 131.22 143.53 131.39 144.19 131.39L212.02 131.39C212.02 139.72 205.27 146.46 196.94 146.46ZM157.38 87.85L153.08 89.29L119.36 45.45L128.03 38.94L157.38 87.85ZM27.38 105.02C27.38 107.1 25.69 108.78 23.61 108.78L4.77 108.78C2.69 108.78 1 107.1 1 105.02C1 102.93 2.69 101.25 4.77 101.25L23.61 101.25C25.69 101.25 27.38 102.93 27.38 105.02ZM4.77 123.86L53.76 123.86C55.84 123.86 57.52 125.54 57.52 127.62C57.52 129.7 55.84 131.39 53.76 131.39L4.77 131.39C2.69 131.39 1 129.7 1 127.62C1 125.54 2.69 123.86 4.77 123.86ZM98.97 150.23C98.97 152.31 97.29 154 95.2 154L4.77 154C2.69 154 1 152.31 1 150.23C1 148.15 2.69 146.46 4.77 146.46L95.2 146.46C97.29 146.46 98.97 148.15 98.97 150.23Z" />
-                     </svg>
-                  </div>
-                  Alergare montană
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name">Laurențiu Vezențan</h4>
-            <ul>
-               <li>Atragerea de fonduri pentru alergare montană</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-               <li>Propuneri de activități în cadrul departamentului de alergare montană</li>
-            </ul>
-         </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=4"
+          >
+            <div
+              style="background: rgb(128, 64, 64)"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg width="25" viewBox="0 0 168 210" fill="#FFF">
+                <path
+                  fill-rule="evenodd"
+                  d="M159.3 95.19l-2.95 17.89-3.43-.57a39.12 39.12 0 01-13.07 21.99 39.101 39.101 0 01-25.18 9.2c-9.2 0-18.14-3.27-25.17-9.2a39.12 39.12 0 01-13.07-21.99l24.74-4.09a13.981 13.981 0 0013.5 10.25c6.37 0 11.83-4.23 13.5-10.25l-3.53-.58 2.96-17.89 31.7 5.24zm-30.34-13.47l2.12-12.82 31.7 5.24-2.12 12.82-31.7-5.24zm38.14-33.7l-2.96 17.89-31.7-5.24 2.95-17.89 3.96.65.36-2.14c.65-3.78-.36-7.47-2.83-10.4-2.47-2.93-5.95-4.55-9.78-4.55h-24.85c-3.84 0-7.31 1.62-9.78 4.55-2.47 2.93-3.48 6.62-2.83 10.4l.36 2.14-24.69 4.08-.34-2.01a37.732 37.732 0 018.37-30.75 37.732 37.732 0 0128.91-13.43h24.85c11.17 0 21.7 4.89 28.91 13.43a37.732 37.732 0 018.37 30.75l-.34 2.01 3.06.51zm-67.4 52.19L75 104.29l-8.29-48.55 24.7-4.09 8.29 48.56z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  class="carbines_svg__shp0"
+                  d="M54.74 160.2l8.57 15.98-3.15 1.7c3.52 5.15 10.05 7.4 16.08 5.35 6.03-2.06 9.83-7.83 9.47-14.06l24.74-4.11c1.1 8.68-.75 17.51-5.27 25.03a39.167 39.167 0 01-20.87 16.83 39.193 39.193 0 01-26.8-.59 39.182 39.182 0 01-19.46-16.6l-3.06 1.64-8.57-15.98 28.32-15.19zm-32.26 7.84l-6.14-11.45 28.32-15.18 6.14 11.44-28.32 15.19zM6.56 131.79L5.59 130A37.777 37.777 0 013.6 98.18a37.755 37.755 0 0123.03-22.03l23.53-8.02a37.736 37.736 0 0131.69 3.4c9.57 5.75 16.07 15.38 17.85 26.41l.32 2.01-24.69 4.1-.35-2.14c-.6-3.79-2.75-6.96-6.03-8.94-3.29-1.97-7.09-2.38-10.72-1.15L34.7 99.84c-3.63 1.24-6.39 3.88-7.79 7.45-1.39 3.57-1.15 7.39.68 10.76l1.03 1.91 3.53-1.89 8.57 15.98-28.32 15.19-8.57-15.98 2.73-1.47zm70.09-19.5l24.69-4.1 7.81 48.63-24.69 4.1-7.81-48.63z"
+                ></path>
+              </svg>
+            </div>
+            Escalada
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/26">Aida Tincu</a>
+        </h4>
+        <ul>
+          <li>Propuneri de activități în cadrul departamentului de escaladă</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+          <li>Atragerea de fonduri pentru escaladă</li>
+        </ul>
       </div>
+    </div>
 
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/horatiu%252Bpopa.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <div style="background: #808000" class="department-heads-item-content-title-icon">
-                  <svg width="25" focusable="false" class="svg-inline--fa fa-map-signs fa-w-16"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                     <path
-                        d="M507.31 84.69L464 41.37c-6-6-14.14-9.37-22.63-9.37H288V16c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v16H56c-13.25 0-24 10.75-24 24v80c0 13.25 10.75 24 24 24h385.37c8.49 0 16.62-3.37 22.63-9.37l43.31-43.31c6.25-6.26 6.25-16.38 0-22.63zM224 496c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V384h-64v112zm232-272H288v-32h-64v32H70.63c-8.49 0-16.62 3.37-22.63 9.37L4.69 276.69c-6.25 6.25-6.25 16.38 0 22.63L48 342.63c6 6 14.14 9.37 22.63 9.37H456c13.25 0 24-10.75 24-24v-80c0-13.25-10.75-24-24-24z">
-                     </path>
-                  </svg>
-               </div>
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=30">
-                  Poteci/marcaje/cabane
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/30">Horațiu
-                  Popa</a></h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de poteci/marcaje/cabane</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-               <li>Atragerea de fonduri pentru poteci/marcaje/cabane</li>
-            </ul>
-         </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img src="https://carcluj.ro/sites/default/files/OvidiuMotioc.jpg" />
       </div>
-
-
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img
-               src="https://carcluj.ro/sites/default/files/pictures/2024-02/IMG_7566-CR2_DxO_DeepPRIME-Edit-Edit.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               <div style="background: #8000FF" class="department-heads-item-content-title-icon">
-                  <svg width="24" focusable="false" class="svg-inline--fa fa-camera-alt fa-w-16"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                     <path
-                        d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88zm-120 0c0-17.6 14.4-32 32-32 8.8 0 16-7.2 16-16s-7.2-16-16-16c-35.3 0-64 28.7-64 64 0 8.8 7.2 16 16 16s16-7.2 16-16z">
-                     </path>
-                  </svg>
-               </div>
-               <a target="_blank" href="https://carcluj.ro/activitati?categories%5B%5D=24">
-                  Foto
-               </a>
-            </h3>
-            <h4 class="department-heads-item-content-name"><a target="_blank" href="https://carcluj.ro/user/9797">Vio
-                  Oprea</a></h4>
-            <ul>
-               <li>Atragerea de fonduri pentru fotografie</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-               <li>Propuneri de activități în cadrul departamentului de fotografie</li>
-            </ul>
-         </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=3"
+          >
+            <div
+              style="background: #5b9d52"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 165 163"
+              >
+                <path
+                  d="M164.45 114.58C164.45 99.92 152.37 88.09 137.71 88.09L100.12 88.66C98.62 88.64 97.13 88.52 95.64 88.28C95.62 88.31 95.6 88.29 95.57 88.32L83.57 100.33C82.73 101.15 80.81 101.14 79.99 100.3C79.17 99.47 78.6 97.01 79.42 96.18L89.06 86.54C86.52 85.73 85.8 85.16 83.56 83.72L73.93 93.36C73.11 94.2 70.63 95.35 69.78 94.53C68.94 93.71 67.79 91.23 68.61 90.38L68.65 90.34L78.97 80.02C76.82 78.18 76.06 77.19 74.49 74.85L64.95 84.95C64.13 85.78 61.08 86.34 60.26 85.52C59.43 84.69 58.86 81.65 59.69 80.82C59.69 80.81 59.7 80.81 59.71 80.8L71.24 69.88C69.27 65.72 68.83 61.74 68.87 57.13L68.87 34.64L1 34.64L1 139.62L164.45 139.62L164.45 114.58Z"
+                />
+                <path
+                  class="shp0"
+                  d="M1 26.98L68.87 26.98L68.87 9.82C68.87 6.74 66.37 4.24 63.29 4.24L6.58 4.24C3.5 4.24 1 6.74 1 9.82L1 26.98ZM7.49 162L41.06 162C44.64 162 47.55 159.09 47.55 155.51L47.55 147.08L1 147.08L1 155.51C1 159.09 3.91 162 7.49 162ZM88.5 162L157.96 162C161.54 162 164.44 159.09 164.44 155.51L164.44 147.08L82.01 147.08L82.01 155.51C82.01 159.09 84.92 162 88.5 162Z"
+                />
+              </svg>
+            </div>
+            Drumeție
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/19">Ovidiu Motioc</a>
+        </h4>
+        <ul>
+          <li>Atragerea de fonduri pentru drumeție</li>
+          <li>Propuneri de activități în cadrul departamentului de drumeție</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+        </ul>
       </div>
+    </div>
 
-      <div class="department-heads-item">
-         <div class="department-heads-item-img-wrapper">
-            <img src="https://carcluj.ro/sites/default/files/Cocos%252BDaniel.jpg" />
-         </div>
-         <div class="department-heads-item-content">
-            <h3 class="department-heads-item-content-title">
-               Tineret
-            </h3>
-            <h4 class="department-heads-item-content-name">Daniel Cocoș</h4>
-            <ul>
-               <li>Propuneri de activități în cadrul departamentului de tineret</li>
-               <li>Atragerea de fonduri pentru tineret</li>
-               <li>Gestionarea sugestiilor și reclamațiilor legate de departament</li>
-            </ul>
-         </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2023-04/AlinaCirja.jpg"
+        />
       </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=5"
+          >
+            <div
+              style="background: #ff336a"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 172 174"
+              >
+                <path
+                  fill-rule="evenodd"
+                  class="shp0"
+                  d="M77.97 143.67C77.39 143.6 76.82 143.51 76.25 143.42L84.63 124.12L79.13 111.43L67.96 119.71L65.65 140.58C65.11 140.38 64.58 140.17 64.05 139.95L66.16 121.06L50.96 132.37C50.51 132.02 50.05 131.65 49.61 131.29L66.41 118.81L67.92 105.04L54.18 106.58L41.85 123.49C41.49 123.04 41.13 122.59 40.78 122.14L51.93 106.84L33.19 108.95C32.97 108.41 32.76 107.86 32.55 107.32L53.27 104.99L61.39 93.86L48.72 88.21L29.68 96.72C29.59 96.14 29.5 95.55 29.42 94.97L46.66 87.35L29.37 79.7C29.44 79.12 29.53 78.53 29.62 77.95L48.73 86.43L61.29 80.87L53.1 69.58L32.43 67.25C32.63 66.71 32.84 66.17 33.05 65.64L51.75 67.77L40.55 52.4C40.91 51.94 41.26 51.49 41.63 51.04L53.99 68L67.61 69.53L66.09 55.63L49.34 43.19C49.78 42.82 50.23 42.45 50.68 42.1L65.82 53.37L63.73 34.44C64.27 34.22 64.8 34 65.35 33.8L67.65 54.73L78.66 62.94L84.25 50.14L75.84 30.92C76.41 30.82 76.99 30.73 77.56 30.65L85.11 48.07L92.67 30.59C93.25 30.67 93.83 30.75 94.4 30.84L86.01 50.15L91.52 62.84L102.69 54.57L104.98 33.66C105.52 33.86 106.05 34.07 106.58 34.29L104.49 53.2L119.69 41.89C120.14 42.24 120.59 42.6 121.04 42.97L104.25 55.46L102.72 69.23L116.47 67.69L128.81 50.78C129.17 51.22 129.53 51.67 129.88 52.12L118.73 67.42L137.47 65.31C137.68 65.84 137.89 66.38 138.1 66.93L117.38 69.27L109.26 80.4L121.93 86.04L140.95 77.51C141.04 78.09 141.13 78.67 141.21 79.25L123.97 86.88L141.26 94.52C141.19 95.11 141.1 95.69 141.01 96.27L121.91 87.83L109.35 93.39L117.55 104.68L138.23 106.99C138.03 107.54 137.83 108.07 137.61 108.61L118.9 106.49L130.09 121.85C129.74 122.31 129.38 122.77 129.02 123.22L116.66 106.26L103.03 104.71L104.56 118.61L121.3 131.07C120.86 131.44 120.42 131.8 119.97 132.16L104.83 120.89L106.92 139.82C106.38 140.04 105.85 140.25 105.31 140.46L103 119.52L91.98 111.32L86.4 124.12L94.81 143.36C94.24 143.45 93.66 143.54 93.08 143.62L85.54 126.2L77.97 143.67ZM80.49 110.39L85.57 122.04L90.6 110.28L85.61 106.56L80.49 110.39ZM69.54 104.83L68.14 117.46L78.27 109.87L75.89 104.12L69.54 104.83ZM92.6 109.65L102.79 117.28L101.38 104.54L95.26 103.85L92.6 109.65ZM55.51 104.74L68.11 103.31L68.8 97.15L62.96 94.51L55.51 104.74ZM102.14 96.66L102.84 103.08L115.34 104.49L107.82 94.25L102.14 96.66ZM50.78 87.27L62.41 92.47L66.09 87.42L62.31 82.25L50.78 87.27ZM104.55 86.83L108.34 92.01L119.87 86.99L108.24 81.79L104.55 86.83ZM62.82 80L68.51 77.6L67.8 71.18L55.31 69.77L62.82 80ZM102.54 70.94L101.85 77.1L107.68 79.79L115.12 69.52L102.54 70.94ZM69.31 69.73L75.42 70.43L77.96 64.53L67.9 56.99L69.31 69.73ZM92.37 64.45L94.75 70.2L101.11 69.49L102.5 56.86L92.37 64.45ZM80.05 63.98L85.03 67.69L90.16 63.86L85.08 52.22L80.05 63.98ZM99.86 88.97C99.46 88.8 99.06 88.61 98.68 88.41C98.53 88.33 98.36 88.21 98.31 88.06C98.08 87.44 98.31 86.92 98.92 86.63C99.01 86.58 99.1 86.54 99.2 86.5C100.42 85.94 100.34 86.25 100.04 84.65C100.03 84.63 100.01 84.61 99.93 84.5C99.45 84.43 98.9 84.32 98.35 84.29C97.8 84.25 97.73 83.84 97.58 83.46C97.43 83.07 97.59 82.82 97.87 82.58C98.27 82.23 98.66 81.86 99.05 81.49C98.91 81.16 98.8 80.9 98.69 80.64C98.53 80.26 98.28 80.08 97.84 80.21C97.48 80.32 97.1 80.39 96.71 80.44C96.52 80.47 96.28 80.46 96.13 80.37C95.58 80.01 95.48 79.46 95.82 78.86C95.87 78.77 95.92 78.68 95.97 78.58C96.56 77.46 96.56 77.46 95.61 76.62C95.56 76.58 95.47 76.57 95.38 76.53C95.14 76.66 94.89 76.8 94.65 76.93C94.4 77.07 94.14 77.2 93.91 77.35C93.66 77.51 93.46 77.5 93.21 77.32C92.52 76.84 92.5 76.8 92.68 75.91C92.98 74.49 92.98 74.49 91.54 73.96C91.2 74.34 90.85 74.75 90.48 75.13C90.33 75.28 90.11 75.45 89.92 75.46C89.23 75.49 88.84 75.1 88.76 74.41C88.71 73.92 88.64 73.44 88.58 73.02C88.46 72.95 88.42 72.91 88.37 72.9C87.04 72.69 87.21 72.38 86.62 73.77C86.19 74.78 86.18 74.78 85.08 74.7C85.03 74.69 84.98 74.66 84.89 74.63C84.66 74.15 84.4 73.65 84.17 73.13C84.02 72.79 83.81 72.65 83.45 72.75C83.3 72.79 83.14 72.83 83 72.84C82.57 72.85 82.42 73.1 82.39 73.49C82.36 73.88 82.28 74.26 82.27 74.65C82.27 75.16 81.92 75.24 81.54 75.38C81.13 75.53 80.86 75.45 80.6 75.13C80.25 74.72 79.88 74.34 79.5 73.93C79.18 74.09 78.91 74.24 78.63 74.36C78.25 74.52 78.16 74.8 78.25 75.17C78.33 75.58 78.41 75.99 78.51 76.39C78.63 76.91 78.18 77.03 77.92 77.29C77.68 77.52 77.44 77.52 77.16 77.35C76.66 77.04 76.14 76.77 75.81 76.58C75.33 76.95 74.95 77.25 74.57 77.54C74.93 78.24 75.27 78.87 75.58 79.47C74.84 80.68 74.92 80.56 73.87 80.34C72.6 80.07 72.6 80.07 72.1 81.32C72.08 81.37 72.1 81.43 72.11 81.55C72.46 81.88 72.84 82.27 73.25 82.62C73.5 82.85 73.67 83.05 73.51 83.41C73.35 83.78 73.34 84.24 72.78 84.28C72.37 84.3 71.97 84.35 71.56 84.41C71.23 84.46 70.97 84.58 70.96 84.98C70.96 85.16 70.89 85.34 70.86 85.52C70.79 85.84 70.9 86.06 71.21 86.19C71.64 86.37 72.06 86.56 72.47 86.78C73 87.07 73 88.1 72.47 88.38C72.04 88.61 71.6 88.81 71.15 89.01C70.9 89.12 70.8 89.3 70.85 89.57C70.89 89.74 70.93 89.92 70.96 90.1C71.09 90.7 71.09 90.7 71.7 90.77C72.2 90.83 72.71 90.9 73.22 90.96C73.3 91.17 73.35 91.35 73.43 91.51C73.67 91.97 73.58 92.32 73.15 92.64C72.75 92.95 72.41 93.33 72.1 93.63C72.1 93.76 72.09 93.79 72.1 93.81C72.6 95.08 72.64 95.12 73.94 94.82C74.9 94.6 74.79 94.49 75.47 95.47C75.52 95.53 75.53 95.61 75.57 95.71C75.25 96.33 74.92 96.97 74.6 97.59C74.96 97.98 75.28 98.33 75.6 98.68C76.28 98.31 76.89 97.98 77.48 97.66C78.61 98.23 78.62 98.24 78.38 99.37C78.09 100.69 78.1 100.52 79.25 101.1C79.33 101.14 79.43 101.15 79.56 101.19C79.85 100.88 80.13 100.58 80.4 100.27C81 99.58 81 99.57 81.82 99.88C81.94 99.92 82.05 99.98 82.21 100.06C82.27 100.59 82.34 101.13 82.4 101.66C82.43 101.92 82.46 102.17 82.77 102.28C83.71 102.62 83.95 102.53 84.36 101.62C84.46 101.41 84.58 101.21 84.64 100.99C84.78 100.54 85.06 100.42 85.51 100.42C85.97 100.42 86.29 100.51 86.45 101C86.57 101.37 86.77 101.7 86.92 102.06C87.04 102.38 87.26 102.5 87.58 102.41C87.73 102.38 87.88 102.32 88.03 102.32C88.45 102.32 88.63 102.09 88.67 101.71C88.71 101.29 88.76 100.88 88.79 100.47C88.84 99.93 89.28 99.88 89.66 99.73C90.02 99.58 90.22 99.74 90.45 100C90.81 100.43 91.2 100.82 91.55 101.19C91.7 101.15 91.76 101.15 91.8 101.13C92.97 100.61 93.01 100.6 92.69 99.37C92.5 98.63 92.62 98.12 93.3 97.77C93.37 97.73 93.44 97.7 93.55 97.64C94.16 97.96 94.79 98.3 95.41 98.63C96.61 97.78 96.63 97.72 95.94 96.53C95.89 96.45 95.85 96.35 95.79 96.26C95.48 95.85 95.51 95.51 95.85 95.09C96.14 94.73 96.41 94.6 96.83 94.75C96.95 94.79 97.08 94.8 97.2 94.83C98.49 95.04 98.49 95.04 99.02 93.66C98.63 93.29 98.27 92.93 97.88 92.6C97.54 92.31 97.51 92.01 97.61 91.57C97.76 90.97 98.16 90.88 98.63 90.82C99.1 90.76 99.57 90.71 100.05 90.65C100.11 90.25 100.13 89.94 100.21 89.64C100.29 89.3 100.16 89.11 99.86 88.97Z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  class="shp0"
+                  d="M170.98 82.09L170.98 92.22L170.14 93.07C166.27 93.07 166.73 94.28 166.27 97.88C165.98 99.72 165.08 102.5 167.65 103.18L169.31 103.89C169.39 104.1 169.39 104.33 169.31 104.54L166.75 114.22L166.35 114.74C166.14 114.82 165.91 114.82 165.7 114.74C162.01 113.63 161.98 115.29 160.72 118.35C159.92 120.15 158.32 122.55 160.72 123.89C161.23 124.23 162.43 124.75 162.01 125.57L157.03 134.36C156.91 134.55 156.72 134.7 156.49 134.76C155.45 135.03 153.3 132.22 151.51 134.88L148.45 138.89C147 140.65 148.52 142.06 149.45 143L149.45 144.23L142.45 151.49L141.22 151.49C138.45 148.75 137.98 149.86 135.12 152.11C133.57 153.32 131.03 154.58 132.43 156.93C132.78 157.5 133.57 158.57 132.66 159.08L124.07 164.12L123.42 164.12C122.56 163.86 121.96 160.45 119.23 161.7L116.87 162.72C115.11 163.46 112.32 164.03 113 166.6C113.2 167.32 113.73 168.5 112.7 168.78L103.13 171.37L102.08 170.77C101.1 167.04 100.04 167.76 96.51 168.23C94.67 168.47 91.78 168.28 91.78 170.95C91.76 171.69 91.99 173 90.91 173L80.94 173L80.09 172.14C80.09 168.23 78.9 168.7 75.34 168.23C73.51 167.94 70.77 167.04 70.09 169.62L69.39 171.3C69.18 171.39 68.95 171.39 68.74 171.3L59.17 168.72L58.65 168.31C58.57 168.1 58.57 167.87 58.65 167.66C59.65 163.91 58.4 164 55.08 162.62C53.29 161.81 50.91 160.2 49.58 162.62C49.25 163.14 48.75 164.35 47.92 163.93L39.23 158.89C38.28 158.36 39.14 157.28 39.49 156.68C40.81 154.37 38.26 153.1 36.75 151.92C35.24 150.75 33.36 148.58 31.5 150.46C31 150.95 30.2 152.07 29.44 151.3L22.39 144.23L22.39 142.94C25.1 140.13 24 139.66 21.78 136.77C20.58 135.21 19.33 132.64 17 134.05C16.44 134.41 15.38 135.21 14.88 134.29L9.89 125.61L9.89 124.95C10.14 124.08 13.52 123.47 12.29 120.72L11.17 118.47C10.44 116.69 9.88 113.87 7.33 114.55C6.62 114.76 5.46 115.29 5.17 114.25L2.61 104.58L3.21 103.52C6.88 102.53 6.19 101.45 5.72 97.89C5.49 96.03 5.67 93.11 3.03 93.11C2.31 93.09 1 93.33 1 92.23L1 82.16L1.85 81.3C5.72 81.3 5.25 80.09 5.72 76.5C6 74.65 6.9 71.88 4.34 71.19L2.68 70.48C2.6 70.27 2.6 70.04 2.68 69.83L5.24 60.16L5.64 59.64L7.4 59.85C9.94 60.54 10.44 57.75 11.24 55.94C12.04 54.13 13.63 51.72 11.24 50.38C10.72 50.05 9.53 49.52 9.94 48.7L14.93 39.92C15.46 38.96 16.52 39.83 17.12 40.19C19.47 41.53 20.66 38.93 21.82 37.42C22.99 35.9 25.12 33.99 23.27 32.11L22.44 31.25L22.44 30.03L29.44 22.99L30.72 22.99C33.49 25.73 33.96 24.58 36.82 22.37C38.36 21.16 40.9 19.9 39.51 17.55C39.14 16.93 38.38 15.95 39.28 15.4L47.87 10.36L49.05 10.68C49.68 11.82 50.66 13.63 52.7 12.69L55.02 11.69C56.74 10.96 59.57 10.38 58.89 7.81C58.69 7.07 58.15 5.89 59.19 5.61L68.74 3.02L69.79 3.62C70.77 7.35 71.85 6.63 75.36 6.16C77.2 5.93 80.09 6.11 80.09 3.44C80.11 2.72 79.88 1.39 80.96 1.39L90.93 1.39L91.79 2.11C91.79 6.03 92.99 5.56 96.55 6.03C98.38 6.31 101.12 7.22 101.8 4.63L102.5 2.95C102.71 2.87 102.94 2.87 103.15 2.95L112.72 5.54L113.23 5.94C113.32 6.15 113.32 6.39 113.23 6.6C112.14 10.33 113.78 10.36 116.81 11.64C118.6 12.44 120.98 14.05 122.31 11.64C122.64 11.11 123.15 9.91 123.97 10.33L132.66 15.36C133.61 15.9 132.74 16.98 132.4 17.58C131.08 19.95 133.63 21.16 135.14 22.33C136.65 23.51 138.53 25.68 140.39 23.79C140.89 23.31 141.69 22.18 142.45 22.96L149.5 30.03L149.5 31.32C146.79 34.12 147.9 34.59 150.11 37.48C151.31 39.04 152.56 41.61 154.88 40.2C155.46 39.85 156.48 39.04 157.01 39.97L161.99 48.65L161.99 49.31C161.74 50.18 158.37 50.78 159.6 53.54L160.63 55.89C161.36 57.67 161.93 60.49 164.47 59.8C165.19 59.6 166.35 59.06 166.63 60.11L169.19 69.78L168.59 70.84C164.92 71.83 165.62 72.9 166.08 76.46C166.32 78.33 166.13 81.25 168.78 81.25C169.49 81.25 170.79 81.03 170.98 82.09ZM133.33 47.52C111.7 21.08 72.96 17.38 46.8 39.24L46.58 39.43C45.09 40.68 43.66 42 42.3 43.38C18.34 67.69 18.42 107.02 42.47 131.23C66.53 155.43 105.44 155.35 129.4 131.05L129.4 131.06C151.85 108.41 153.55 72.22 133.33 47.52Z"
+                />
+              </svg>
+            </div>
+            MTB
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/29">Alina Cîrja</a>
+        </h4>
+        <ul>
+          <li>Propuneri de activități în cadrul departamentului de MTB</li>
+          <li>Atragerea de fonduri pentru MTB</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+        </ul>
+      </div>
+    </div>
 
-   </div>
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img src="https://carcluj.ro/sites/default/files/VEZE.jpg" />
+      </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=2"
+          >
+            <div
+              style="background: #eb143f"
+              class="department-heads-item-content-title-icon"
+            >
+              <svg
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 214 155"
+              >
+                <path
+                  fill-rule="evenodd"
+                  class="shp0"
+                  d="M212.02 123.86L145.2 123.86L119.35 108.98L128.04 100.12C129.48 98.61 129.42 96.23 127.91 94.79C126.43 93.38 124.11 93.41 122.66 94.84L112.61 105.09L98.29 96.84L112.65 85.35C114.27 84.05 114.53 81.68 113.23 80.05C111.93 78.43 109.56 78.16 107.94 79.47L91.27 92.8L79 85.74L97.61 70.23C99.22 68.9 99.43 66.52 98.1 64.92C96.77 63.32 94.39 63.1 92.79 64.44L72.04 81.73L66.21 78.38L66.82 63.92C68.22 53.49 63.85 43.14 55.42 36.86L42.58 27.32L47.43 19.7L80.78 39.71C81.23 39.97 81.73 40.13 82.24 40.18C82.33 40.18 82.41 40.21 82.5 40.22C82.59 40.23 82.65 40.25 82.72 40.25C83.19 40.25 83.65 40.16 84.08 40L122.25 25.28C122.95 25.01 123.74 25.1 124.35 25.52C124.98 25.94 125.34 26.65 125.34 27.4L125.34 31.55L111.77 41.72C110.11 42.97 109.77 45.33 111.02 47C111.03 47.01 111.04 47.02 111.05 47.03L148.73 96.02C149.7 97.29 151.38 97.81 152.9 97.29L163.5 93.76L197.36 96.18C205.6 96.79 211.98 103.64 212.02 111.9L212.02 123.86ZM58.91 0.76L80.09 12.13C83.02 13.68 84.49 17.06 83.62 20.26L80.51 30.75L58.88 17.78L51.39 13.29L58.91 0.76ZM36.6 36.72L38.53 33.71L50.92 42.93C57.23 47.66 60.45 55.47 59.32 63.28L58.85 74.16L25.18 54.76L36.6 36.72ZM196.94 146.46L141.71 146.46L9.83 73.36L17.44 59.05L142.3 130.89C142.88 131.22 143.53 131.39 144.19 131.39L212.02 131.39C212.02 139.72 205.27 146.46 196.94 146.46ZM157.38 87.85L153.08 89.29L119.36 45.45L128.03 38.94L157.38 87.85ZM27.38 105.02C27.38 107.1 25.69 108.78 23.61 108.78L4.77 108.78C2.69 108.78 1 107.1 1 105.02C1 102.93 2.69 101.25 4.77 101.25L23.61 101.25C25.69 101.25 27.38 102.93 27.38 105.02ZM4.77 123.86L53.76 123.86C55.84 123.86 57.52 125.54 57.52 127.62C57.52 129.7 55.84 131.39 53.76 131.39L4.77 131.39C2.69 131.39 1 129.7 1 127.62C1 125.54 2.69 123.86 4.77 123.86ZM98.97 150.23C98.97 152.31 97.29 154 95.2 154L4.77 154C2.69 154 1 152.31 1 150.23C1 148.15 2.69 146.46 4.77 146.46L95.2 146.46C97.29 146.46 98.97 148.15 98.97 150.23Z"
+                />
+              </svg>
+            </div>
+            Alergare montană
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">Laurențiu Vezențan</h4>
+        <ul>
+          <li>Atragerea de fonduri pentru alergare montană</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+          <li>
+            Propuneri de activități în cadrul departamentului de alergare
+            montană
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/horatiu%252Bpopa.jpg"
+        />
+      </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <div
+            style="background: #808000"
+            class="department-heads-item-content-title-icon"
+          >
+            <svg
+              width="25"
+              focusable="false"
+              class="svg-inline--fa fa-map-signs fa-w-16"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M507.31 84.69L464 41.37c-6-6-14.14-9.37-22.63-9.37H288V16c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v16H56c-13.25 0-24 10.75-24 24v80c0 13.25 10.75 24 24 24h385.37c8.49 0 16.62-3.37 22.63-9.37l43.31-43.31c6.25-6.26 6.25-16.38 0-22.63zM224 496c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V384h-64v112zm232-272H288v-32h-64v32H70.63c-8.49 0-16.62 3.37-22.63 9.37L4.69 276.69c-6.25 6.25-6.25 16.38 0 22.63L48 342.63c6 6 14.14 9.37 22.63 9.37H456c13.25 0 24-10.75 24-24v-80c0-13.25-10.75-24-24-24z"
+              ></path>
+            </svg>
+          </div>
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=30"
+          >
+            Poteci/marcaje/cabane
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/30">Horațiu Popa</a>
+        </h4>
+        <ul>
+          <li>
+            Propuneri de activități în cadrul departamentului de
+            poteci/marcaje/cabane
+          </li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+          <li>Atragerea de fonduri pentru poteci/marcaje/cabane</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/pictures/2024-02/IMG_7566-CR2_DxO_DeepPRIME-Edit-Edit.jpg"
+        />
+      </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">
+          <div
+            style="background: #8000ff"
+            class="department-heads-item-content-title-icon"
+          >
+            <svg
+              width="24"
+              focusable="false"
+              class="svg-inline--fa fa-camera-alt fa-w-16"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88zm-120 0c0-17.6 14.4-32 32-32 8.8 0 16-7.2 16-16s-7.2-16-16-16c-35.3 0-64 28.7-64 64 0 8.8 7.2 16 16 16s16-7.2 16-16z"
+              ></path>
+            </svg>
+          </div>
+          <a
+            target="_blank"
+            href="https://carcluj.ro/activitati?categories%5B%5D=24"
+          >
+            Foto
+          </a>
+        </h3>
+        <h4 class="department-heads-item-content-name">
+          <a target="_blank" href="https://carcluj.ro/user/9797">Vio Oprea</a>
+        </h4>
+        <ul>
+          <li>Atragerea de fonduri pentru fotografie</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+          <li>
+            Propuneri de activități în cadrul departamentului de fotografie
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="department-heads-item">
+      <div class="department-heads-item-img-wrapper">
+        <img
+          src="https://carcluj.ro/sites/default/files/Cocos%252BDaniel.jpg"
+        />
+      </div>
+      <div class="department-heads-item-content">
+        <h3 class="department-heads-item-content-title">Tineret</h3>
+        <h4 class="department-heads-item-content-name">Daniel Cocoș</h4>
+        <ul>
+          <li>Propuneri de activități în cadrul departamentului de tineret</li>
+          <li>Atragerea de fonduri pentru tineret</li>
+          <li>
+            Gestionarea sugestiilor și reclamațiilor legate de departament
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
