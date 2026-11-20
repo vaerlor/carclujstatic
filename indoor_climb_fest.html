@@ -6,10 +6,17 @@
   /*
   CAR Indoor Climb Fest 2026 – stiluri pentru pagina festivalului.
   Toate regulile sunt limitate la .carf, ca să nu afecteze tema.
+  Specificitatea și !important țin tema Drupal în afara paginii.
 */
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
-  .carf {
+  /* Resetează stilurile temei în interiorul paginii, apoi regulile de mai jos le refac. */
+  :is(#carf.carf, .carf.carf) :where(*:not(svg *)) {
+    all: revert !important;
+  }
+
+  :is(#carf.carf, .carf.carf) {
+    all: revert !important;
     --ink: #16202e;
     --slate: #0c3b5e;
     --slate-2: #155182;
@@ -21,791 +28,802 @@
     --skai: #7b3fc4;
     --gravity: #d2343a;
     --centrala: #f2b01e;
-    font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
-    color: var(--ink);
-    font-size: 17px;
-    line-height: 1.6;
-    background: #fff;
+    font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif !important;
+    color: var(--ink) !important;
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    background: #fff !important;
   }
-  .carf *,
-  .carf *::before,
-  .carf *::after {
-    box-sizing: border-box;
+  :is(#carf.carf, .carf.carf) *,
+  :is(#carf.carf, .carf.carf) *::before,
+  :is(#carf.carf, .carf.carf) *::after {
+    box-sizing: border-box !important;
   }
-  .carf h1,
-  .carf h2,
-  .carf h3,
-  .carf h4,
-  .carf p,
-  .carf ol,
-  .carf ul {
-    margin: 0;
-    padding: 0;
+  :is(#carf.carf, .carf.carf) h1,
+  :is(#carf.carf, .carf.carf) h2,
+  :is(#carf.carf, .carf.carf) h3,
+  :is(#carf.carf, .carf.carf) h4,
+  :is(#carf.carf, .carf.carf) p,
+  :is(#carf.carf, .carf.carf) ol,
+  :is(#carf.carf, .carf.carf) ul {
+    margin: 0 !important;
+    padding: 0 !important;
   }
-  .carf h1,
-  .carf h2,
-  .carf h3,
-  .carf h4 {
-    font-family: inherit;
-    color: inherit;
-    text-transform: none;
+  :is(#carf.carf, .carf.carf) h1,
+  :is(#carf.carf, .carf.carf) h2,
+  :is(#carf.carf, .carf.carf) h3,
+  :is(#carf.carf, .carf.carf) h4 {
+    font-family: inherit !important;
+    color: inherit !important;
+    text-transform: none !important;
   }
-  .carf ol,
-  .carf ul {
-    list-style: none;
+  :is(#carf.carf, .carf.carf) ol,
+  :is(#carf.carf, .carf.carf) ul {
+    list-style: none !important;
   }
-  .carf a {
-    color: inherit;
+  :is(#carf.carf, .carf.carf) a {
+    color: inherit !important;
   }
-  .carf a:focus-visible,
-  .carf summary:focus-visible {
-    outline: 3px solid var(--main-dark);
-    outline-offset: 3px;
-    border-radius: 4px;
+  :is(#carf.carf, .carf.carf) a:focus-visible,
+  :is(#carf.carf, .carf.carf) summary:focus-visible {
+    outline: 3px solid var(--main-dark) !important;
+    outline-offset: 3px !important;
+    border-radius: 4px !important;
   }
-  .carf-wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 48px);
+  :is(#carf.carf, .carf.carf) .carf-wrap {
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 5vw, 48px) !important;
   }
 
   /* ---------- Hero: peretele surplombat ---------- */
-  .carf-hero {
-    position: relative;
-    overflow: hidden;
-    background: var(--main);
-    color: var(--ink);
-    padding: clamp(48px, 8vw, 96px) 0 clamp(110px, 13vw, 170px);
+  :is(#carf.carf, .carf.carf) .carf-hero {
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--main) !important;
+    color: var(--ink) !important;
+    padding: clamp(48px, 8vw, 96px) 0 clamp(110px, 13vw, 170px) !important;
     clip-path: polygon(
       0 0,
       100% 0,
       100% 100%,
       0 calc(100% - clamp(50px, 7vw, 90px))
-    );
+    ) !important;
   }
-  .carf-hero .carf-wrap {
-    position: relative;
-    z-index: 1;
+  :is(#carf.carf, .carf.carf) .carf-hero .carf-wrap {
+    position: relative !important;
+    z-index: 1 !important;
   }
-  .carf-hero__org {
-    font-size: 15px;
-    font-weight: 700;
-    color: #123a52;
-    margin-bottom: 18px;
+  :is(#carf.carf, .carf.carf) .carf-hero__org {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #123a52 !important;
+    margin-bottom: 18px !important;
   }
-  .carf-hero h1 {
-    font-size: clamp(44px, 8vw, 104px);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -0.025em;
-    max-width: 11ch;
-    margin-bottom: 28px;
+  :is(#carf.carf, .carf.carf) .carf-hero h1 {
+    font-size: clamp(44px, 8vw, 104px) !important;
+    font-weight: 900 !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.025em !important;
+    max-width: 11ch !important;
+    margin-bottom: 28px !important;
   }
-  .carf-hero__dates {
-    font-size: clamp(22px, 2.6vw, 30px);
-    font-weight: 800;
-    letter-spacing: -0.01em;
+  :is(#carf.carf, .carf.carf) .carf-hero__dates {
+    font-size: clamp(22px, 2.6vw, 30px) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em !important;
   }
-  .carf-hero__where {
-    color: #123a52;
-    font-weight: 500;
-    margin-top: 6px;
-    max-width: 40ch;
+  :is(#carf.carf, .carf.carf) .carf-hero__where {
+    color: #123a52 !important;
+    font-weight: 500 !important;
+    margin-top: 6px !important;
+    max-width: 40ch !important;
   }
-  .carf-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 34px;
+  :is(#carf.carf, .carf.carf) .carf-hero__actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 34px !important;
   }
-  .carf-btn {
-    display: inline-block;
-    padding: 13px 24px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    border: 2px solid transparent;
+  :is(#carf.carf, .carf.carf) .carf-btn {
+    display: inline-block !important;
+    padding: 13px 24px !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    border: 2px solid transparent !important;
   }
-  .carf-btn--main {
-    background: var(--main);
-    color: var(--ink);
+  :is(#carf.carf, .carf.carf) .carf-btn--main {
+    background: var(--main) !important;
+    color: var(--ink) !important;
   }
-  .carf-btn--main:hover {
-    background: #7dd6ff;
+  :is(#carf.carf, .carf.carf) .carf-btn--main:hover {
+    background: #7dd6ff !important;
   }
-  .carf-hero .carf-btn--main {
-    background: var(--slate);
-    color: #fff;
+  :is(#carf.carf, .carf.carf) .carf-hero .carf-btn--main {
+    background: var(--slate) !important;
+    color: #fff !important;
   }
-  .carf-hero .carf-btn--main:hover {
-    background: var(--slate-2);
+  :is(#carf.carf, .carf.carf) .carf-hero .carf-btn--main:hover {
+    background: var(--slate-2) !important;
   }
-  .carf-btn--ghost {
-    border-color: var(--ink);
-    color: var(--ink);
+  :is(#carf.carf, .carf.carf) .carf-btn--ghost {
+    border-color: var(--ink) !important;
+    color: var(--ink) !important;
   }
-  .carf-btn--ghost:hover {
-    background: rgba(22, 32, 46, 0.08);
+  :is(#carf.carf, .carf.carf) .carf-btn--ghost:hover {
+    background: rgba(22, 32, 46, 0.08) !important;
   }
-  button.carf-btn {
-    font-family: inherit;
-    line-height: 1.2;
+  :is(#carf.carf, .carf.carf) .carf-btn--inscrieri {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff !important;
+    color: var(--ink) !important;
+    border-color: #fff !important;
   }
-  .carf-btn--soon {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #fff;
-    color: var(--ink);
-    border-color: #fff;
-    cursor: default;
+  :is(#carf.carf, .carf.carf) .carf-btn--inscrieri:hover {
+    background: #f4fbff !important;
   }
-  .carf-btn--soon span {
-    background: var(--slate);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 999px;
+  :is(#carf.carf, .carf.carf) .carf-outro .carf-btn--inscrieri {
+    background: var(--slate) !important;
+    color: #fff !important;
+    border-color: var(--slate) !important;
   }
-  .carf-btn--soon:disabled {
-    opacity: 1;
-  }
-  .carf-outro .carf-btn--soon {
-    background: var(--slate);
-    color: #fff;
-    border-color: var(--slate);
-  }
-  .carf-outro .carf-btn--soon span {
-    background: var(--main);
-    color: var(--ink);
+  :is(#carf.carf, .carf.carf) .carf-outro .carf-btn--inscrieri:hover {
+    background: var(--slate-2) !important;
   }
 
-  .carf-holds {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+  :is(#carf.carf, .carf.carf) .carf-holds {
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
   }
-  .carf-holds svg {
-    position: absolute;
+  :is(#carf.carf, .carf.carf) .carf-holds svg {
+    position: absolute !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(1) {
+    width: 74px !important;
+    height: 58px !important;
+    right: 6% !important;
+    bottom: 22% !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(1) path {
+    fill: #f2b01e !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(1) circle {
+    fill: #0c3b5e !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(2) {
+    width: 48px !important;
+    height: 40px !important;
+    right: 30% !important;
+    bottom: 14% !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(2) path {
+    fill: #7b3fc4 !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(2) circle {
+    fill: #0c3b5e !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(3) {
+    width: 58px !important;
+    height: 46px !important;
+    right: 14% !important;
+    top: 12% !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(3) path {
+    fill: #d2343a !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(3) circle {
+    fill: #0c3b5e !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(4) {
+    width: 36px !important;
+    height: 30px !important;
+    right: 38% !important;
+    top: 40% !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(4) path {
+    fill: #0c3b5e !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-holds svg:nth-child(4) circle {
+    fill: #4cc5ff !important;
   }
 
   /* ---------- Intro ---------- */
-  .carf-intro {
-    padding: clamp(48px, 7vw, 80px) 0;
+  :is(#carf.carf, .carf.carf) .carf-intro {
+    padding: clamp(48px, 7vw, 80px) 0 !important;
   }
-  .carf-intro__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    gap: clamp(32px, 6vw, 80px);
-    align-items: start;
+  :is(#carf.carf, .carf.carf) .carf-intro__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) !important;
+    gap: clamp(32px, 6vw, 80px) !important;
+    align-items: start !important;
   }
-  .carf-lead {
-    font-size: clamp(20px, 2.2vw, 24px);
-    font-weight: 600;
-    line-height: 1.45;
-    margin-bottom: 20px;
-    max-width: 34ch;
+  :is(#carf.carf, .carf.carf) .carf-lead {
+    font-size: clamp(20px, 2.2vw, 24px) !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 20px !important;
+    max-width: 62ch !important;
   }
-  .carf-intro p + p {
-    margin-top: 16px;
+  :is(#carf.carf, .carf.carf) .carf-intro p + p {
+    margin-top: 16px !important;
   }
-  .carf-intro__text p {
-    max-width: 62ch;
+  :is(#carf.carf, .carf.carf) .carf-intro__text p {
+    max-width: 62ch !important;
   }
 
-  .carf-legend {
-    background: var(--chalk);
-    border-radius: 14px;
-    padding: 28px;
+  :is(#carf.carf, .carf.carf) .carf-legend {
+    background: var(--chalk) !important;
+    border-radius: 14px !important;
+    padding: 28px !important;
   }
-  .carf-legend h2 {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 8px;
+  :is(#carf.carf, .carf.carf) .carf-legend h2 {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
   }
-  .carf-legend > p {
-    color: var(--muted);
-    font-size: 15px;
-    margin-bottom: 18px;
+  :is(#carf.carf, .carf.carf) .carf-legend > p {
+    color: var(--muted) !important;
+    font-size: 15px !important;
+    margin-bottom: 18px !important;
   }
-  .carf-legend li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    padding: 8px 0;
+  :is(#carf.carf, .carf.carf) .carf-legend li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    font-weight: 700 !important;
+    padding: 8px 0 !important;
   }
-  .carf-dot {
-    width: 22px;
-    height: 22px;
-    border-radius: 50% 45% 55% 40%;
-    flex: none;
+  :is(#carf.carf, .carf.carf) .carf-dot {
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% 45% 55% 40% !important;
+    flex: none !important;
   }
-  .carf-dot--skai {
-    background: var(--skai);
+  :is(#carf.carf, .carf.carf) .carf-dot--skai {
+    background: var(--skai) !important;
   }
-  .carf-dot--gravity {
-    background: var(--gravity);
+  :is(#carf.carf, .carf.carf) .carf-dot--gravity {
+    background: var(--gravity) !important;
   }
-  .carf-dot--centrala {
-    background: var(--centrala);
+  :is(#carf.carf, .carf.carf) .carf-dot--centrala {
+    background: var(--centrala) !important;
   }
-  .carf-dot--talks {
-    background: var(--slate);
-    box-shadow: inset 0 0 0 4px var(--main);
+  :is(#carf.carf, .carf.carf) .carf-dot--talks {
+    background: var(--slate) !important;
+    box-shadow: inset 0 0 0 4px var(--main) !important;
   }
 
   /* ---------- Fonduri ---------- */
-  .carf-fund {
-    margin: 0 auto clamp(48px, 7vw, 80px);
-    background: var(--slate);
-    color: #fff;
-    border-radius: 18px;
-    padding: clamp(28px, 4vw, 44px);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-    gap: clamp(20px, 4vw, 48px);
-    align-items: center;
+  :is(#carf.carf, .carf.carf) .carf-fund {
+    margin: 0 auto clamp(48px, 7vw, 80px) !important;
+    background: var(--slate) !important;
+    color: #fff !important;
+    border-radius: 18px !important;
+    padding: clamp(28px, 4vw, 44px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) !important;
+    gap: clamp(20px, 4vw, 48px) !important;
+    align-items: center !important;
   }
-  .carf-fund h2 {
-    color: var(--main);
-    font-size: clamp(24px, 3vw, 34px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.015em;
+  :is(#carf.carf, .carf.carf) .carf-fund h2 {
+    color: var(--main) !important;
+    font-size: clamp(24px, 3vw, 34px) !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.015em !important;
   }
-  .carf-fund p {
-    color: #d6e6f2;
-    max-width: 60ch;
+  :is(#carf.carf, .carf.carf) .carf-fund p {
+    color: #d6e6f2 !important;
+    max-width: 60ch !important;
   }
 
   /* ---------- Program ---------- */
-  .carf-program {
-    padding-bottom: clamp(48px, 7vw, 80px);
+  :is(#carf.carf, .carf.carf) .carf-program {
+    padding-bottom: clamp(48px, 7vw, 80px) !important;
   }
-  .carf-program > .carf-wrap > h2,
-  .carf-talks h2 {
-    font-size: clamp(32px, 4.5vw, 52px);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+  :is(#carf.carf, .carf.carf) .carf-program > .carf-wrap > h2,
+  :is(#carf.carf, .carf.carf) .carf-talks h2 {
+    font-size: clamp(32px, 4.5vw, 52px) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.05 !important;
   }
-  .carf-program__intro {
-    color: var(--muted);
-    margin-top: 10px;
-    max-width: 60ch;
-  }
-
-  .carf-daynav {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid var(--line);
-    margin: 28px 0 8px;
-    padding: 12px 0;
-  }
-  .carf-daynav ul {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .carf-daynav a {
-    display: block;
-    white-space: nowrap;
-    padding: 9px 16px;
-    border-radius: 999px;
-    background: var(--chalk);
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-  }
-  .carf-daynav a:hover {
-    background: var(--main);
-    color: var(--ink);
+  :is(#carf.carf, .carf.carf) .carf-program__intro {
+    color: var(--muted) !important;
+    margin-top: 10px !important;
+    max-width: 60ch !important;
   }
 
-  .carf-day {
-    padding-top: clamp(32px, 5vw, 56px);
-    scroll-margin-top: 80px;
+  :is(#carf.carf, .carf.carf) .carf-daynav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid var(--line) !important;
+    margin: 28px 0 8px !important;
+    padding: 12px 0 !important;
   }
-  .carf-day__head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+  :is(#carf.carf, .carf.carf) .carf-daynav ul {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
   }
-  .carf-day__head h3 {
-    font-size: clamp(28px, 3.6vw, 40px);
-    font-weight: 900;
-    letter-spacing: -0.02em;
+  :is(#carf.carf, .carf.carf) .carf-daynav a {
+    display: block !important;
+    white-space: nowrap !important;
+    padding: 9px 16px !important;
+    border-radius: 999px !important;
+    background: var(--chalk) !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
   }
-  .carf-day__head span {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--muted);
+  :is(#carf.carf, .carf.carf) .carf-daynav a:hover {
+    background: var(--main) !important;
+    color: var(--ink) !important;
   }
 
-  .carf-ev {
-    display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 20px;
-    padding: 22px 24px 22px 20px;
-    border-left: 7px solid var(--line);
-    background: #fff;
-    border-radius: 0 12px 12px 0;
+  :is(#carf.carf, .carf.carf) .carf-day {
+    padding-top: clamp(32px, 5vw, 56px) !important;
+    scroll-margin-top: 80px !important;
   }
-  .carf-ev + .carf-ev {
-    margin-top: 12px;
+  :is(#carf.carf, .carf.carf) .carf-day__head {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px !important;
   }
-  .carf-ev--skai {
-    border-left-color: var(--skai);
-    background: #f4effb;
+  :is(#carf.carf, .carf.carf) .carf-day__head h3 {
+    font-size: clamp(28px, 3.6vw, 40px) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.02em !important;
   }
-  .carf-ev--gravity {
-    border-left-color: var(--gravity);
-    background: #fcefef;
+  :is(#carf.carf, .carf.carf) .carf-day__head span {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: var(--muted) !important;
   }
-  .carf-ev--centrala {
-    border-left-color: var(--centrala);
-    background: #fdf8eb;
+
+  :is(#carf.carf, .carf.carf) .carf-ev {
+    display: grid !important;
+    grid-template-columns: 96px minmax(0, 1fr) !important;
+    gap: 20px !important;
+    padding: 22px 24px 22px 20px !important;
+    border-left: 7px solid var(--line) !important;
+    background: #fff !important;
+    border-radius: 0 12px 12px 0 !important;
   }
-  .carf-ev__time {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
+  :is(#carf.carf, .carf.carf) .carf-ev + .carf-ev {
+    margin-top: 12px !important;
   }
-  .carf-ev h4 {
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 8px;
+  :is(#carf.carf, .carf.carf) .carf-ev--skai {
+    border-left-color: var(--skai) !important;
+    background: #f4effb !important;
   }
-  .carf-ev__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    align-items: center;
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 10px;
+  :is(#carf.carf, .carf.carf) .carf-ev--gravity {
+    border-left-color: var(--gravity) !important;
+    background: #fcefef !important;
   }
-  .carf-ev__meta strong {
-    color: var(--ink);
-    font-weight: 600;
+  :is(#carf.carf, .carf.carf) .carf-ev--centrala {
+    border-left-color: var(--centrala) !important;
+    background: #fdf8eb !important;
   }
-  .carf-ev__desc {
-    max-width: 68ch;
+  :is(#carf.carf, .carf.carf) .carf-ev__time {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
   }
-  .carf-chip {
-    display: inline-block;
-    padding: 3px 11px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
+  :is(#carf.carf, .carf.carf) .carf-ev h4 {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
   }
-  .carf-chip--skai {
-    background: var(--skai);
+  :is(#carf.carf, .carf.carf) .carf-ev__meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px 16px !important;
+    align-items: center !important;
+    font-size: 15px !important;
+    color: var(--muted) !important;
+    margin-bottom: 10px !important;
   }
-  .carf-chip--gravity {
-    background: var(--gravity);
+  :is(#carf.carf, .carf.carf) .carf-ev__meta strong {
+    color: var(--ink) !important;
+    font-weight: 600 !important;
   }
-  .carf-chip--centrala {
-    background: var(--centrala);
-    color: var(--ink);
+  :is(#carf.carf, .carf.carf) .carf-ev__desc {
+    max-width: 68ch !important;
   }
-  .carf p.carf-warn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 6px 14px;
-    border-radius: 8px;
-    background: var(--ink);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
+  :is(#carf.carf, .carf.carf) .carf-ev__desc + .carf-ev__desc {
+    margin-top: 10px !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-chip {
+    display: inline-block !important;
+    padding: 3px 11px !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-chip--skai {
+    background: var(--skai) !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-chip--gravity {
+    background: var(--gravity) !important;
+  }
+  :is(#carf.carf, .carf.carf) .carf-chip--centrala {
+    background: var(--centrala) !important;
+    color: var(--ink) !important;
+  }
+  :is(#carf.carf, .carf.carf) p.carf-warn {
+    display: inline-block !important;
+    margin-top: 12px !important;
+    padding: 6px 14px !important;
+    border-radius: 8px !important;
+    background: var(--ink) !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
   }
 
   /* Evenimente speciale: film, CAR Talks, petrecerea de închidere */
-  .carf-ev--special {
-    background: var(--slate);
-    border-left-color: var(--main);
-    color: #fff;
+  :is(#carf.carf, .carf.carf) .carf-ev--special {
+    background: var(--slate) !important;
+    border-left-color: var(--main) !important;
+    color: #fff !important;
   }
-  .carf-ev--special .carf-ev__meta {
-    color: #bcd6ea;
+  :is(#carf.carf, .carf.carf) .carf-ev--special .carf-ev__meta {
+    color: #bcd6ea !important;
   }
-  .carf-ev--special .carf-ev__meta strong {
-    color: #fff;
+  :is(#carf.carf, .carf.carf) .carf-ev--special .carf-ev__meta strong {
+    color: #fff !important;
   }
-  .carf-ev--special h4 {
-    font-size: 24px;
+  :is(#carf.carf, .carf.carf) .carf-ev--special h4 {
+    font-size: 24px !important;
   }
-  .carf-ev--special a.carf-inline {
-    font-weight: 700;
-    color: var(--main);
+  :is(#carf.carf, .carf.carf) .carf-ev--special a.carf-inline {
+    font-weight: 700 !important;
+    color: var(--main) !important;
   }
-  .carf-ev__extra {
-    margin-top: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  :is(#carf.carf, .carf.carf) .carf-ev__extra {
+    margin-top: 12px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
   }
-  .carf-ev__extra span {
-    background: var(--slate-2);
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
+  :is(#carf.carf, .carf.carf) .carf-ev__extra span {
+    background: var(--slate-2) !important;
+    padding: 5px 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
   }
 
   /* ---------- CAR Talks ---------- */
-  .carf-talks {
-    background: var(--chalk);
-    padding: clamp(56px, 8vw, 96px) 0;
-    scroll-margin-top: 60px;
+  :is(#carf.carf, .carf.carf) .carf-talks {
+    background: var(--chalk) !important;
+    padding: clamp(56px, 8vw, 96px) 0 !important;
+    scroll-margin-top: 60px !important;
   }
-  .carf-talks__head {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 32px;
-    align-items: end;
-    margin-bottom: 40px;
+  :is(#carf.carf, .carf.carf) .carf-talks__head {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) !important;
+    gap: 32px !important;
+    align-items: end !important;
+    margin-bottom: 40px !important;
   }
-  .carf-talks__tag {
-    font-size: clamp(20px, 2.4vw, 26px);
-    font-weight: 600;
-    font-style: italic;
-    color: var(--muted);
-    margin-top: 8px;
+  :is(#carf.carf, .carf.carf) .carf-talks__tag {
+    font-size: clamp(20px, 2.4vw, 26px) !important;
+    font-weight: 600 !important;
+    font-style: italic !important;
+    color: var(--muted) !important;
+    margin-top: 8px !important;
   }
-  .carf-talks__info {
-    font-weight: 600;
-    line-height: 1.8;
+  :is(#carf.carf, .carf.carf) .carf-talks__info {
+    font-weight: 600 !important;
+    line-height: 1.8 !important;
   }
-  .carf-talks__info span {
-    display: block;
+  :is(#carf.carf, .carf.carf) .carf-talks__info span {
+    display: block !important;
   }
 
-  .carf-timeline {
-    position: relative;
-    border-left: 3px solid var(--ink);
-    margin-left: 8px;
+  :is(#carf.carf, .carf.carf) .carf-timeline {
+    position: relative !important;
+    border-left: 3px solid var(--ink) !important;
+    margin-left: 8px !important;
   }
-  .carf-talk {
-    position: relative;
-    padding: 0 0 30px 32px;
+  :is(#carf.carf, .carf.carf) .carf-talk {
+    position: relative !important;
+    padding: 0 0 30px 32px !important;
   }
-  .carf-talk::before {
-    content: "";
-    position: absolute;
-    left: -11px;
-    top: 4px;
-    width: 19px;
-    height: 19px;
-    border-radius: 50% 42% 55% 45%;
-    background: var(--main);
-    border: 3px solid var(--chalk);
+  :is(#carf.carf, .carf.carf) .carf-talk::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -11px !important;
+    top: 4px !important;
+    width: 19px !important;
+    height: 19px !important;
+    border-radius: 50% 42% 55% 45% !important;
+    background: var(--main) !important;
+    border: 3px solid var(--chalk) !important;
   }
-  .carf-talk__time {
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--muted);
+  :is(#carf.carf, .carf.carf) .carf-talk__time {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: var(--muted) !important;
   }
-  .carf-talk h3 {
-    font-size: clamp(19px, 2vw, 23px);
-    font-weight: 800;
-    line-height: 1.25;
-    margin: 2px 0 4px;
+  :is(#carf.carf, .carf.carf) .carf-talk h3 {
+    font-size: clamp(19px, 2vw, 23px) !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    margin: 2px 0 4px !important;
   }
-  .carf-talk__sub {
-    font-style: italic;
-    color: var(--muted);
-    max-width: 60ch;
+  :is(#carf.carf, .carf.carf) .carf-talk__sub {
+    font-style: italic !important;
+    color: var(--muted) !important;
+    max-width: 60ch !important;
   }
-  .carf-talk__speaker {
-    font-weight: 700;
-    margin-top: 6px;
+  :is(#carf.carf, .carf.carf) .carf-talk__speaker {
+    font-weight: 700 !important;
+    margin-top: 6px !important;
   }
-  .carf-talk details {
-    margin-top: 8px;
-    max-width: 66ch;
+  :is(#carf.carf, .carf.carf) .carf-talk details {
+    margin-top: 8px !important;
+    max-width: 66ch !important;
   }
-  .carf-talk summary {
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--main-dark);
-    width: fit-content;
+  :is(#carf.carf, .carf.carf) .carf-talk summary {
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--main-dark) !important;
+    width: fit-content !important;
   }
-  .carf-talk details p {
-    margin-top: 8px;
+  :is(#carf.carf, .carf.carf) .carf-talk details p {
+    margin-top: 8px !important;
   }
-  .carf-talk--break::before {
-    background: var(--skai);
+  :is(#carf.carf, .carf.carf) .carf-talk--break::before {
+    background: var(--skai) !important;
   }
-  .carf-talk--break h3 {
-    font-weight: 600;
-    color: var(--muted);
+  :is(#carf.carf, .carf.carf) .carf-talk--break h3 {
+    font-weight: 600 !important;
+    color: var(--muted) !important;
   }
-  .carf-talk--end {
-    padding-bottom: 0;
+  :is(#carf.carf, .carf.carf) .carf-talk--end {
+    padding-bottom: 0 !important;
   }
 
   /* ---------- Parteneri ---------- */
-  .carf-partners {
-    padding: 0 0 clamp(48px, 7vw, 80px);
+  :is(#carf.carf, .carf.carf) .carf-partners {
+    padding: 0 0 clamp(48px, 7vw, 80px) !important;
   }
-  .carf-partners h2 {
-    font-size: clamp(26px, 3vw, 36px);
-    font-weight: 900;
-    letter-spacing: -0.015em;
-    margin-bottom: 24px;
+  :is(#carf.carf, .carf.carf) .carf-partners h2 {
+    font-size: clamp(26px, 3vw, 36px) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.015em !important;
+    margin-bottom: 24px !important;
   }
-  .carf-partners ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
+  :is(#carf.carf, .carf.carf) .carf-partners ul {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+    gap: 14px !important;
   }
-  .carf-partner {
-    height: 120px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 12px;
+  :is(#carf.carf, .carf.carf) .carf-partner {
+    height: 120px !important;
+    background: #fff !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 12px !important;
     transition:
       border-color 0.15s ease,
-      box-shadow 0.15s ease;
+      box-shadow 0.15s ease !important;
   }
-  .carf-partner:hover,
-  .carf-partner:focus-within {
-    border-color: var(--slate);
-    box-shadow: 0 4px 14px rgba(12, 59, 94, 0.12);
+  :is(#carf.carf, .carf.carf) .carf-partner:hover,
+  :is(#carf.carf, .carf.carf) .carf-partner:focus-within {
+    border-color: var(--slate) !important;
+    box-shadow: 0 4px 14px rgba(12, 59, 94, 0.12) !important;
   }
-  .carf-partner a {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 18px 22px;
-    text-decoration: none;
+  :is(#carf.carf, .carf.carf) .carf-partner a {
+    display: grid !important;
+    place-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 18px 22px !important;
+    text-decoration: none !important;
   }
-  .carf-partner img {
-    max-width: 100%;
-    max-height: 76px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  :is(#carf.carf, .carf.carf) .carf-partner img {
+    max-width: 100% !important;
+    max-height: 76px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
     /* dacă imaginea lipsește, se afișează frumos numele din alt */
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    color: var(--ink);
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    color: var(--ink) !important;
   }
 
   /* ---------- Final ---------- */
-  .carf-outro {
-    padding: clamp(56px, 8vw, 96px) 0;
-    text-align: center;
+  :is(#carf.carf, .carf.carf) .carf-outro {
+    padding: clamp(56px, 8vw, 96px) 0 !important;
+    text-align: center !important;
   }
-  .carf-outro p {
-    font-size: clamp(24px, 3.4vw, 40px);
-    font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    max-width: 22ch;
-    margin: 0 auto 28px;
+  :is(#carf.carf, .carf.carf) .carf-outro p {
+    font-size: clamp(24px, 3.4vw, 40px) !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    max-width: 36ch !important;
+    margin: 0 auto 28px !important;
   }
-  .carf-outro__actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+  :is(#carf.carf, .carf.carf) .carf-outro__actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
   }
 
   /* ---------- Mobil ---------- */
   @media (max-width: 820px) {
-    .carf {
-      overflow-x: clip;
+    :is(#carf.carf, .carf.carf) {
+      overflow-x: clip !important;
     }
-    .carf-wrap {
-      padding: 0 20px;
-    }
-
-    .carf-hero {
-      padding: 36px 0 92px;
-    }
-    .carf-hero h1 {
-      font-size: 40px;
-      max-width: none;
-      margin-bottom: 18px;
-    }
-    .carf-hero__dates {
-      font-size: 22px;
-    }
-    .carf-hero__where {
-      max-width: none;
-    }
-    .carf-hero__actions,
-    .carf-outro__actions {
-      flex-direction: column;
-      align-items: stretch;
-      min-width: 0;
-    }
-    .carf-hero__actions {
-      margin-top: 24px;
-    }
-    .carf-hero__actions .carf-btn,
-    .carf-outro__actions .carf-btn {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      justify-content: center;
-      text-align: center;
-      white-space: normal;
-    }
-    .carf-btn--soon {
-      flex-wrap: wrap;
-      row-gap: 4px;
-    }
-    .carf-holds {
-      display: none;
+    :is(#carf.carf, .carf.carf) .carf-wrap {
+      padding: 0 20px !important;
     }
 
-    .carf-intro {
-      padding: 40px 0;
+    :is(#carf.carf, .carf.carf) .carf-hero {
+      padding: 36px 0 92px !important;
     }
-    .carf-intro__grid,
-    .carf-fund,
-    .carf-talks__head {
-      grid-template-columns: 1fr;
+    :is(#carf.carf, .carf.carf) .carf-hero h1 {
+      font-size: 40px !important;
+      max-width: none !important;
+      margin-bottom: 18px !important;
     }
-    .carf-lead {
-      max-width: none;
+    :is(#carf.carf, .carf.carf) .carf-hero__dates {
+      font-size: 22px !important;
     }
-    .carf-legend {
-      padding: 22px;
+    :is(#carf.carf, .carf.carf) .carf-hero__where {
+      max-width: none !important;
     }
-
-    .carf-fund {
-      margin-bottom: 40px;
-      padding: 24px;
+    :is(#carf.carf, .carf.carf) .carf-hero__actions,
+    :is(#carf.carf, .carf.carf) .carf-outro__actions {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      min-width: 0 !important;
     }
-    .carf-partners ul {
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    :is(#carf.carf, .carf.carf) .carf-hero__actions {
+      margin-top: 24px !important;
     }
-    .carf-partner {
-      height: 100px;
+    :is(#carf.carf, .carf.carf) .carf-hero__actions .carf-btn,
+    :is(#carf.carf, .carf.carf) .carf-outro__actions .carf-btn {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      justify-content: center !important;
+      text-align: center !important;
+      white-space: normal !important;
     }
-    .carf-partner a {
-      padding: 14px;
-    }
-
-    .carf-daynav {
-      margin-left: -20px;
-      margin-right: -20px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .carf-daynav ul {
-      min-width: 0;
-    }
-    .carf-ev {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 16px 16px 16px 14px;
-    }
-    .carf-ev__time {
-      font-size: 18px;
-    }
-    .carf-ev h4,
-    .carf-ev--special h4 {
-      font-size: 18px;
-    }
-    .carf-ev__extra span {
-      max-width: 100%;
+    :is(#carf.carf, .carf.carf) .carf-holds {
+      display: none !important;
     }
 
-    .carf-talks {
-      padding: 40px 0;
+    :is(#carf.carf, .carf.carf) .carf-intro {
+      padding: 40px 0 !important;
     }
-    .carf-talks__head {
-      gap: 16px;
-      margin-bottom: 28px;
+    :is(#carf.carf, .carf.carf) .carf-intro__grid,
+    :is(#carf.carf, .carf.carf) .carf-fund,
+    :is(#carf.carf, .carf.carf) .carf-talks__head {
+      grid-template-columns: 1fr !important;
     }
-    .carf-talk {
-      padding-left: 24px;
+    :is(#carf.carf, .carf.carf) .carf-lead {
+      max-width: none !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-legend {
+      padding: 22px !important;
     }
 
-    .carf-outro {
-      padding: 48px 0;
+    :is(#carf.carf, .carf.carf) .carf-fund {
+      margin-bottom: 40px !important;
+      padding: 24px !important;
     }
-    .carf-outro p {
-      max-width: 16ch;
+    :is(#carf.carf, .carf.carf) .carf-partners ul {
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-partner {
+      height: 100px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-partner a {
+      padding: 14px !important;
+    }
+
+    :is(#carf.carf, .carf.carf) .carf-daynav {
+      margin-left: -20px !important;
+      margin-right: -20px !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-daynav ul {
+      min-width: 0 !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-ev {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+      padding: 16px 16px 16px 14px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-ev__time {
+      font-size: 18px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-ev h4,
+    :is(#carf.carf, .carf.carf) .carf-ev--special h4 {
+      font-size: 18px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-ev__extra span {
+      max-width: 100% !important;
+    }
+
+    :is(#carf.carf, .carf.carf) .carf-talks {
+      padding: 40px 0 !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-talks__head {
+      gap: 16px !important;
+      margin-bottom: 28px !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-talk {
+      padding-left: 24px !important;
+    }
+
+    :is(#carf.carf, .carf.carf) .carf-outro {
+      padding: 48px 0 !important;
+    }
+    :is(#carf.carf, .carf.carf) .carf-outro p {
+      max-width: 22ch !important;
     }
   }
   @media (max-width: 420px) {
-    .carf-btn {
-      padding: 12px 16px;
+    :is(#carf.carf, .carf.carf) .carf-btn {
+      padding: 12px 16px !important;
     }
-    .carf-hero h1 {
-      font-size: 34px;
+    :is(#carf.carf, .carf.carf) .carf-hero h1 {
+      font-size: 34px !important;
     }
   }
 </style>
 
-<div class="carf">
+<div id="carf" class="carf">
   <!-- HERO -->
   <header class="carf-hero">
     <div class="carf-holds" aria-hidden="true">
-      <svg
-        width="74"
-        height="58"
-        viewBox="0 0 74 58"
-        style="right: 6%; bottom: 22%"
-      >
+      <svg width="74" height="58" viewBox="0 0 74 58">
         <path
           d="M8 30C4 14 22 2 40 4s32 12 30 28-20 26-38 24S12 46 8 30z"
           fill="#f2b01e"
         />
         <circle cx="38" cy="29" r="5" fill="#0c3b5e" />
       </svg>
-      <svg
-        width="48"
-        height="40"
-        viewBox="0 0 48 40"
-        style="right: 30%; bottom: 14%"
-      >
+      <svg width="48" height="40" viewBox="0 0 48 40">
         <path
           d="M4 22C2 9 16 2 28 3s18 9 16 20-14 16-24 15S6 33 4 22z"
           fill="#7b3fc4"
         />
         <circle cx="25" cy="20" r="4" fill="#0c3b5e" />
       </svg>
-      <svg
-        width="58"
-        height="46"
-        viewBox="0 0 58 46"
-        style="right: 14%; top: 12%"
-      >
+      <svg width="58" height="46" viewBox="0 0 58 46">
         <path
           d="M5 26C2 11 18 2 32 3s23 11 21 23-16 18-28 17S8 39 5 26z"
           fill="#d2343a"
         />
         <circle cx="29" cy="23" r="4.5" fill="#0c3b5e" />
       </svg>
-      <svg
-        width="36"
-        height="30"
-        viewBox="0 0 36 30"
-        style="right: 38%; top: 40%"
-      >
+      <svg width="36" height="30" viewBox="0 0 36 30">
         <path
           d="M3 16C2 6 12 1 21 2s13 7 12 15-10 12-18 11S4 24 3 16z"
           fill="#0c3b5e"
@@ -819,13 +837,16 @@
       <h1>CAR Indoor Climb Fest</h1>
       <p class="carf-hero__dates">3–6 decembrie 2026</p>
       <p class="carf-hero__where">
-        Cluj-Napoca, la Skai, Gravity, Centrala de Escaladă și Facultatea de
-        Geografie
+        Cluj-Napoca, la Skai, Gravity și Centrala de Escaladă
       </p>
       <div class="carf-hero__actions">
-        <button type="button" class="carf-btn carf-btn--soon" disabled>
-          Înscrieri <span>în curând</span>
-        </button>
+        <a
+          class="carf-btn carf-btn--inscrieri"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScA3_9zUfN0h-2A3G1jIUrXivHAfy_qvMgvRv7FyLCGJnXcyg/viewform?usp=header"
+          target="_blank"
+          rel="noopener"
+          >Înscrieri</a
+        >
         <a class="carf-btn carf-btn--main" href="#carf-program"
           >Vezi programul</a
         >
@@ -841,9 +862,9 @@
     <div class="carf-wrap carf-intro__grid">
       <div class="carf-intro__text">
         <p class="carf-lead">
-          Sportivi, instructori, terapeuți, salvatori montani, route-setteri și
-          pasionați ai escaladei, împreună pentru patru zile dedicate învățării,
-          inspirației și comunității.
+          CAR Indoor Climbing Festival aduce împreună sportivi, instructori,
+          terapeuți, salvatori montani, route-setteri și pasionați ai escaladei
+          pentru un eveniment dedicat învățării, inspirației și comunității.
         </p>
         <p>
           Pe parcursul festivalului vei putea participa la ateliere practice și
@@ -855,7 +876,7 @@
           siguranță.
         </p>
         <p>
-          În deschidere vizionăm împreună Reel Rock 20, unul dintre cele mai
+          În plus, vom avea ocazia să vizionăm împreună Reel Rock 20, unul dintre cele mai
           așteptate și apreciate filme din lumea escaladei, o sursă de
           inspirație pentru cățărători din întreaga lume și punctul de întâlnire
           al comunității noastre în debutul festivalului.
@@ -886,8 +907,9 @@
       <h2>Banii strânși ajung pe stâncă</h2>
       <div>
         <p>
-          Participarea la festival înseamnă și susținerea escaladei în aer
-          liber. Fondurile strânse vor fi direcționate către amenajarea,
+          Participarea la festival înseamnă și susținerea dezvoltării escaladei
+          în aer liber. Fondurile strânse în cadrul evenimentului vor fi
+          direcționate către amenajarea,
           reechiparea și întreținerea traseelor de escaladă, contribuind direct
           la siguranța și dezvoltarea zonelor de cățărare pe care le folosim cu
           toții.
@@ -983,8 +1005,9 @@
     <div class="carf-wrap">
       <h2>Programul festivalului</h2>
       <p class="carf-program__intro">
-        Atelierele au locuri limitate, de la 6 la 20 de participanți, așa că
-        merită să te înscrii din timp.
+        Atât pentru ateliere, cât și pentru talkuri va fi necesară înscrierea
+        prealabilă, iar detaliile despre acest proces vor fi publicate în
+        curând. Până atunci, poți consulta programul de mai jos.
       </p>
 
       <nav class="carf-daynav" aria-label="Zilele festivalului">
@@ -1003,20 +1026,6 @@
           <h3>Joi</h3>
           <span>3 decembrie</span>
         </div>
-
-        <article class="carf-ev carf-ev--special">
-          <div class="carf-ev__time">Opening Night</div>
-          <div>
-            <h4>🎬 Reel Rock 20</h4>
-            <p class="carf-ev__desc">
-              Festivalul începe cu una dintre cele mai apreciate serii de filme
-              de escaladă din lume. Parte a Reel Rock Tour, proiecția aduce pe
-              ecran povești inspiraționale, ascensiuni spectaculoase și oameni
-              care împing constant limitele posibilului. O invitație de a visa
-              mai sus, chiar din prima zi de festival.
-            </p>
-          </div>
-        </article>
 
         <article class="carf-ev carf-ev--skai">
           <div class="carf-ev__time">12:00</div>
@@ -1039,17 +1048,16 @@
         <article class="carf-ev carf-ev--skai">
           <div class="carf-ev__time">17:00</div>
           <div>
-            <h4>Primii pași la MoonBoard</h4>
+            <h4>Moon Board Advanced</h4>
             <p class="carf-ev__meta">
               <span class="carf-chip carf-chip--skai">Skai</span
               ><span>cu <strong>Victor Șera</strong></span
               ><span>6 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Curios să încerci unul dintre cele mai populare sisteme de
-              antrenament din lume? Vei învăța regulile de bază, modul de
-              utilizare al aplicației și cum să alegi trasee potrivite nivelului
-              tău.
+              Pentru cățărători care doresc să își maximizeze performanța pe
+              panourile de antrenament. Discutăm despre metodologie, progres și
+              antrenament orientat spre obiective.
             </p>
           </div>
         </article>
@@ -1075,7 +1083,7 @@
         <article class="carf-ev carf-ev--centrala">
           <div class="carf-ev__time">18:00</div>
           <div>
-            <h4>Trust Your Feet! Workshop de slab climbing</h4>
+            <h4>Trust Your Feet! Workshop de Slab Climbing</h4>
             <p class="carf-ev__meta">
               <span class="carf-chip carf-chip--centrala"
                 >Centrala de Escaladă</span
@@ -1088,6 +1096,35 @@
               espadrilelor, cum să ne menținem echilibrul și cum să folosim
               corpul pentru a urca fluid pe trasee unde prizele mari lipsesc.
               Mai puțină forță, mai multă tehnică, precizie și control.
+            </p>
+          </div>
+        </article>
+
+        <article class="carf-ev carf-ev--special">
+          <div class="carf-ev__time">20:00</div>
+          <div>
+            <h4>🎬 Reel Rock 20</h4>
+            <p class="carf-ev__meta">
+              <span>Opening Night, la <strong>Gravity</strong></span
+              ><span>2 ore</span>
+            </p>
+            <p class="carf-ev__desc">
+              Festivalul începe cu una dintre cele mai apreciate serii de filme
+              de escaladă din lume. Parte a Reel Rock Tour, această proiecție
+              aduce pe ecran povești inspiraționale, ascensiuni spectaculoase și
+              oameni care împing constant limitele posibilului. O invitație de a
+              visa mai sus, chiar din prima zi de festival.
+            </p>
+            <p class="carf-ev__desc">
+              Accesul se face pe baza abonamentului de festival. Dacă vii doar
+              la film, biletul este 25 de lei și îl poți cumpăra
+              <a
+                class="carf-inline"
+                href="https://mpy.ro/719jndiht?language=ro"
+                target="_blank"
+                rel="noopener"
+                >de aici</a
+              >.
             </p>
           </div>
         </article>
@@ -1118,36 +1155,38 @@
           </div>
         </article>
 
-        <article class="carf-ev carf-ev--gravity">
+        <article class="carf-ev carf-ev--centrala">
           <div class="carf-ev__time">17:00</div>
           <div>
-            <h4>Clipping rapid</h4>
+            <h4>Injury Prevention</h4>
             <p class="carf-ev__meta">
-              <span class="carf-chip carf-chip--gravity">Gravity</span
-              ><span>8 locuri</span>
+              <span class="carf-chip carf-chip--centrala"
+                >Centrala de Escaladă</span
+              ><span>cu <strong>Noemi Mosonyi + MEDREHAB</strong></span
+              ><span>20 de locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Perfecționează tehnica de clipare pentru mai multă eficiență și
-              siguranță pe traseu. Vom analiza poziționarea, alegerea momentului
-              potrivit și cele mai frecvente greșeli întâlnite la cățărători.
+              Află cum să identifici și să previi cele mai frecvente accidentări
+              din escaladă. Vom aborda încălzirea, mobilitatea, recuperarea și
+              gestionarea volumului de antrenament pentru o evoluție sănătoasă
+              și sustenabilă.
             </p>
           </div>
         </article>
 
-        <article class="carf-ev carf-ev--centrala">
-          <div class="carf-ev__time">17:00</div>
+        <article class="carf-ev carf-ev--gravity">
+          <div class="carf-ev__time">17:30</div>
           <div>
-            <h4>Căderi dinamice</h4>
+            <h4>Inițiere în escaladă</h4>
             <p class="carf-ev__meta">
-              <span class="carf-chip carf-chip--centrala"
-                >Centrala de Escaladă</span
-              ><span>cu <strong>Aida Tincu</strong></span
-              ><span>8 locuri</span>
+              <span class="carf-chip carf-chip--gravity">Gravity</span
+              ><span>cu <strong>Csabi Tanko</strong></span
+              ><span>6 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Învață principiile unei asigurări dinamice și cum pot fi
-              gestionate căderile în siguranță. Vom aborda atât perspectiva
-              cățărătorului, cât și a filatorului, pentru o cădere cât mai lină.
+              Primul contact cu lumea escaladei. Vei descoperi noțiunile de bază
+              despre siguranță, tehnică și deplasarea eficientă pe perete,
+              într-un mediu prietenos și accesibil.
             </p>
           </div>
         </article>
@@ -1165,9 +1204,9 @@
               Ai terminat proiectul, ai căzut de câteva ori sau ai petrecut
               toată ziua pe panou? Este momentul să oferi corpului tău puțină
               atenție. Prin mișcări fluide, respirație conștientă și exerciții
-              de mobilitate, sesiunea te va ajuta să te relaxezi, să eliberezi
-              tensiunile acumulate și să îți pregătești corpul pentru următoarea
-              aventură verticală.
+              de mobilitate, această sesiune te va ajuta să te relaxezi, să
+              eliberezi tensiunile acumulate și să îți pregătești corpul pentru
+              următoarea aventură verticală.
             </p>
           </div>
         </article>
@@ -1183,9 +1222,9 @@
               ><span>6 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Învață să folosești eficient heel hook, drop knee și knee bar
-              pentru a te mișca mai fluid și mai economic pe perete. Atelier
-              practic dedicat escaladei tehnice, cu exemple concrete și
+              Învață să folosești eficient tehnicile de heel hook, drop knee și
+              knee bar pentru a te mișca mai fluid și mai economic pe perete.
+              Atelier practic dedicat escaladei tehnice, cu exemple concrete și
               exerciții aplicate pe trasee.
             </p>
           </div>
@@ -1203,7 +1242,7 @@
             <p class="carf-ev__desc">
               Învață cum să folosești impulsul, coordonarea și sincronizarea
               pentru a aborda mișcările dinamice cu mai multă încredere și
-              siguranță. Atelierul te ajută să depășești secvențele care par
+              siguranță. Atelierul te va ajuta să depășești secvențele care par
               imposibile doar prin forță și să reduci riscul accidentelor prin
               tehnici de cădere și gestionare a situațiilor neprevăzute.
             </p>
@@ -1223,7 +1262,7 @@
           <div>
             <h4>CAR Talks: „Climbing Worth Spreading”</h4>
             <p class="carf-ev__meta">
-              <span>📍 <strong>Facultatea de Geografie</strong></span>
+              <span>📍 <strong>Locația va fi anunțată</strong></span>
             </p>
             <p class="carf-ev__desc">
               O serie de prezentări scurte, inspiraționale și educative dedicate
@@ -1236,37 +1275,37 @@
         </article>
 
         <article class="carf-ev carf-ev--gravity">
-          <div class="carf-ev__time">14:00</div>
+          <div class="carf-ev__time">16:00</div>
           <div>
-            <h4>Inițiere în escaladă</h4>
+            <h4>Clipping rapid</h4>
             <p class="carf-ev__meta">
               <span class="carf-chip carf-chip--gravity">Gravity</span
-              ><span>cu <strong>Csabi Tanko</strong></span
-              ><span>6 locuri</span>
+              ><span>cu <strong>Adrian Rendiuc</strong></span
+              ><span>8 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Primul contact cu lumea escaladei. Vei descoperi noțiunile de bază
-              despre siguranță, tehnică și deplasarea eficientă pe perete,
-              într-un mediu prietenos și accesibil.
+              Perfecționează tehnica de clipare pentru mai multă eficiență și
+              siguranță pe traseu. Vom analiza poziționarea, alegerea momentului
+              potrivit și cele mai frecvente greșeli întâlnite la cățărători.
             </p>
           </div>
         </article>
 
         <article class="carf-ev carf-ev--centrala">
-          <div class="carf-ev__time">15:30</div>
+          <div class="carf-ev__time">16:00</div>
           <div>
-            <h4>Injury Prevention</h4>
+            <h4>Căderi dinamice</h4>
             <p class="carf-ev__meta">
               <span class="carf-chip carf-chip--centrala"
                 >Centrala de Escaladă</span
-              ><span>cu <strong>Noemi Mosonyi și MEDREHAB</strong></span
-              ><span>20 de locuri</span>
+              ><span>cu <strong>Aida Tincu</strong></span
+              ><span>8 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Află cum să identifici și să previi cele mai frecvente accidentări
-              din escaladă. Vom aborda încălzirea, mobilitatea, recuperarea și
-              gestionarea volumului de antrenament pentru o evoluție sănătoasă
-              și sustenabilă.
+              Învață principiile unei asigurări dinamice și cum pot fi
+              gestionate căderile în siguranță. În cadrul atelierului, vom
+              aborda atât perspectiva cățărătorului, cât și a filatorului pentru
+              o cădere cât mai lină.
             </p>
           </div>
         </article>
@@ -1282,8 +1321,9 @@
             </p>
             <p class="carf-ev__desc">
               Ai terminat proiectul, ai căzut de câteva ori sau ai petrecut
-              toată ziua pe panou? Prin mișcări fluide, respirație conștientă și
-              exerciții de mobilitate, sesiunea te va ajuta să te relaxezi, să
+              toată ziua pe panou? Este momentul să oferi corpului tău puțină
+              atenție. Prin mișcări fluide, respirație conștientă și exerciții
+              de mobilitate, această sesiune te va ajuta să te relaxezi, să
               eliberezi tensiunile acumulate și să îți pregătești corpul pentru
               următoarea aventură verticală.
             </p>
@@ -1303,7 +1343,7 @@
               De ce uneori renunțăm înainte de pas și alteori reușim să depășim
               limite pe care le credeam imposibile? Descoperă rolul emoțiilor în
               escaladă și învață să le identifici și să le folosești în
-              avantajul tău, pentru a cățăra cu mai multă încredere, control și
+              avantajul tău pentru a cățăra cu mai multă încredere, control și
               plăcere.
             </p>
           </div>
@@ -1332,7 +1372,7 @@
           <div>
             <h4>🎄 Saint Nicholas Party</h4>
             <p class="carf-ev__meta">
-              <span>Petrecerea de închidere, la <strong>Skai</strong></span>
+              <span>Festival Closing Event, la <strong>Skai</strong></span>
             </p>
             <p class="carf-ev__desc">
               Încheiem festivalul într-o atmosferă festivă și relaxată. Moș
@@ -1375,19 +1415,22 @@
         <article class="carf-ev carf-ev--skai">
           <div class="carf-ev__time">16:00</div>
           <div>
-            <h4>Board Climbing Advanced</h4>
+            <h4>Primii pași la Moon Board</h4>
             <p class="carf-ev__meta">
               <span class="carf-chip carf-chip--skai">Skai</span
+              ><span>cu <strong>Vlad Lazea</strong></span
               ><span>6 locuri</span>
             </p>
             <p class="carf-ev__desc">
-              Pentru cățărători care doresc să își maximizeze performanța pe
-              panourile de antrenament. Discutăm despre metodologie, progres și
-              antrenament orientat spre obiective.
+              Curios să încerci unul dintre cele mai populare sisteme de
+              antrenament din lume? Vei învăța regulile de bază, modul de
+              utilizare al aplicației și cum să alegi trasee potrivite nivelului
+              tău.
             </p>
           </div>
         </article>
       </div>
+
     </div>
   </section>
 
@@ -1400,7 +1443,7 @@
           <p class="carf-talks__tag">„Climbing Worth Spreading”</p>
         </div>
         <p class="carf-talks__info">
-          <span>📍 Facultatea de Geografie</span>
+          <span>📍 Locația va fi anunțată</span>
           <span>📅 Sâmbătă, 5 decembrie 2026</span>
           <span>🕚 11:00–15:00</span>
         </p>
@@ -1423,8 +1466,9 @@
               reprezentat de propriile noastre comportamente: evitarea
               căderilor, concentrarea exclusivă pe grade, lipsa răbdării,
               comparația constantă cu ceilalți sau refuzul de a ieși din zona de
-              confort. Vom explora obiceiurile și tiparele mentale care ne
-              încetinesc evoluția și cum mici schimbări de perspectivă pot
+              confort. În acest talk vom explora obiceiurile și tiparele mentale
+              care ne încetinesc evoluția și vom descoperi cum mici schimbări de
+              perspectivă pot
               transforma modul în care învățăm, ne antrenăm și ne raportăm la
               succes.
             </p>
@@ -1442,8 +1486,8 @@
             <summary>Despre prezentare</summary>
             <p>
               Escalada este un sport al libertății, dar și al responsabilității.
-              Vom explora cele mai frecvente tipuri de accidente din escaladă,
-              cauzele care le-au generat și lecțiile pe care comunitatea le-a
+              În acest talk vom explora cele mai frecvente tipuri de accidente din escaladă,
+              cauzele care le-au generat și lecțiile valoroase pe care comunitatea le-a
               învățat de-a lungul timpului. O discuție sinceră despre factorul
               uman, atenție și cultura siguranței, pentru că fiecare incident
               poate deveni o oportunitate de a urca mai conștient.
@@ -1464,7 +1508,7 @@
               Cum se schimbă relația cu escalada atunci când apare un copil?
               Este posibil să împaci pasiunea pentru munte și stâncă cu
               responsabilitățile maternității? Prin experiențe autentice,
-              provocări și soluții găsite pe parcurs, prezentarea vorbește
+              provocări și soluții găsite pe parcurs, acest talk vorbește
               despre echilibru, redefinirea performanței și despre faptul că
               visurile nu trebuie abandonate, ci reinventate.
             </p>
@@ -1481,7 +1525,7 @@
             <p>
               Fie că este vorba despre o cădere, o competiție sau un proiect la
               limita posibilului, emoțiile ne însoțesc în fiecare ascensiune.
-              Prezentarea explorează modul în care frica, stresul și presiunea
+              Acest talk explorează modul în care frica, stresul și presiunea
               influențează performanța și cum pot fi transformate din obstacole
               în aliați. Pentru că adevărata provocare nu este întotdeauna
               traseul, ci dialogul pe care îl purtăm cu noi înșine.
@@ -1499,8 +1543,9 @@
             <p>
               Ce mâncăm înainte de un proiect greu? Cum ne recuperăm mai
               eficient după antrenament? Și cât de mult influențează alimentația
-              progresul în escaladă? O perspectivă practică și accesibilă asupra
-              nutriției sportive, care demontează mituri populare și prezintă
+              și suplimentele progresul în escaladă? Acest talk oferă o
+              perspectivă practică și accesibilă asupra nutriției sportive,
+              demontează mituri populare și prezintă
               principii simple ce pot face diferența între epuizare și energie.
             </p>
           </details>
@@ -1518,7 +1563,7 @@
             <p>
               Traseele de escaladă nu apar din întâmplare și nu rezistă veșnic.
               În spatele fiecărei linii există muncă, timp și responsabilitate.
-              Prezentarea explorează rolul comunității în întreținerea și
+              Acest talk explorează rolul comunității în întreținerea și
               protejarea zonelor de cățărat: de la comportamentul responsabil și
               impactul asupra mediului până la mentenanța echipărilor și
               implicarea voluntară. O invitație de a privi stânca nu doar ca loc
@@ -1529,7 +1574,7 @@
 
         <li class="carf-talk carf-talk--break">
           <p class="carf-talk__time">13:00</p>
-          <h3>Pauză de cafea ☕</h3>
+          <h3>Coffee Break ☕</h3>
         </li>
 
         <li class="carf-talk">
@@ -1543,7 +1588,7 @@
             <summary>Despre prezentare</summary>
             <p>
               Durerea și accidentările sunt adesea privite ca fiind parte din
-              progres, dar nu trebuie să fie așa. Prezentarea explorează
+              progres, dar nu trebuie să fie așa. Acest talk explorează
               strategii simple și eficiente pentru prevenirea accidentărilor
               specifice cățărătorilor: de la încălzire și gestionarea volumului
               de antrenament până la recuperare și ascultarea semnalelor
@@ -1557,17 +1602,19 @@
           <p class="carf-talk__time">13:40</p>
           <h3>Puternic sau eficient?</h3>
           <p class="carf-talk__sub">
-            De ce tehnica bate forța mai des decât credem
+            De ce tehnica bate forța mai des decât credem.
           </p>
           <details>
             <summary>Despre prezentare</summary>
             <p>
               Mulți dintre noi credem că pentru a cățăra mai greu trebuie să
               devenim mai puternici. Dar ce se întâmplă când progresul vine nu
-              din mai multă forță, ci din mișcări mai inteligente? Prezentarea
+              din mai multă forță, ci din mișcări mai inteligente? Acest talk
               explorează rolul tehnicii, al poziționării corpului și al
               eficienței în escaladă, arătând de ce cei mai buni cățărători nu
-              sunt întotdeauna cei mai puternici.
+              sunt întotdeauna cei mai puternici. O invitație de a privi
+              peretele cu alți ochi și de a descoperi cât de mult putem câștiga
+              învățând să ne mișcăm mai bine, nu doar să tragem mai tare.
             </p>
           </details>
         </li>
@@ -1583,7 +1630,7 @@
               Escalada este mai mult decât un sport. Este o școală a răbdării, a
               perseverenței și a curajului de a încerca din nou după fiecare
               eșec. Prin povești personale și experiențe din comunitate,
-              prezentarea explorează lecțiile pe care cățărarea ni le oferă
+              acest talk explorează lecțiile pe care cățărarea ni le oferă
               despre gestionarea fricii, asumarea riscurilor, încrederea în
               oameni și bucuria procesului. Pentru că uneori cele mai importante
               ascensiuni au loc departe de stâncă.
@@ -1605,9 +1652,9 @@
               unei leziuni. Înseamnă să înveți din nou să ai încredere în
               propriul corp, să depășești teama de recidivă și să accepți că
               progresul poate avea un alt ritm decât cel cu care erai obișnuit.
-              Despre provocările fizice și emoționale ale revenirii la escaladă
-              și despre cum o perioadă dificilă poate deveni o oportunitate de
-              creștere.
+              Acest talk vorbește despre provocările fizice și emoționale ale
+              revenirii la escaladă și despre cum o perioadă dificilă poate
+              deveni o oportunitate de creștere și reinventare.
             </p>
           </details>
         </li>
@@ -1623,7 +1670,9 @@
             <p>
               Mai multe tracțiuni înseamnă automat că vei cățăra mai bine? Este
               hangboard-ul soluția pentru orice platou de performanță? Și cât de
-              mult ar trebui să ne antrenăm, de fapt? Prezentarea analizează
+              mult ar trebui să ne antrenăm, de fapt? În lumea escaladei circulă
+              numeroase sfaturi și convingeri care sunt rareori puse sub semnul
+              întrebării. Acest talk analizează
               unele dintre cele mai răspândite mituri despre antrenament și
               oferă o perspectivă bazată pe experiență, bun-simț și înțelegerea
               procesului de progres pe termen lung.
@@ -1638,13 +1687,17 @@
   <section class="carf-outro">
     <div class="carf-wrap">
       <p>
-        Vino să cățărăm, să învățăm și să construim împreună viitorul
-        comunității de escaladă.
+        Vino să cățărăm, să învățăm, să ne inspirăm unii pe alții și să
+        construim împreună viitorul comunității de escaladă.
       </p>
       <div class="carf-outro__actions">
-        <button type="button" class="carf-btn carf-btn--soon" disabled>
-          Înscrieri <span>în curând</span>
-        </button>
+        <a
+          class="carf-btn carf-btn--inscrieri"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScA3_9zUfN0h-2A3G1jIUrXivHAfy_qvMgvRv7FyLCGJnXcyg/viewform?usp=header"
+          target="_blank"
+          rel="noopener"
+          >Înscrieri</a
+        >
         <a class="carf-btn carf-btn--main" href="#carf-program"
           >Alege-ți atelierele</a
         >
