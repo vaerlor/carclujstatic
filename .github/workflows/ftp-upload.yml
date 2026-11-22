@@ -10,7 +10,7 @@ on:
       remote_dir:
         description: "Target folder on the FTP server"
         required: true
-        default: "/public_html"
+        default: "/carcluj/assets/html_pages"
       dry_run:
         description: "Only list what would be uploaded, don't upload"
         type: boolean
