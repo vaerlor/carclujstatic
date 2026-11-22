@@ -1,0 +1,91 @@
+name: Upload HTML to FTP
+
+on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: "Files or globs, comma-separated (e.g. index.html, about/*.html, blog/**/*.html). Leave empty to upload ALL .html files."
+        required: false
+        default: ""
+      remote_dir:
+        description: "Target folder on the FTP server"
+        required: true
+        default: "/public_html"
+      dry_run:
+        description: "Only list what would be uploaded, don't upload"
+        type: boolean
+        default: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Resolve file list
+        id: resolve
+        env:
+          INPUT_FILES: ${{ inputs.files }}
+        run: |
+          shopt -s globstar nullglob
+          : > files.txt
+
+          if [ -z "$(echo "$INPUT_FILES" | tr -d '[:space:]')" ]; then
+            # No selection -> every tracked .html file in the repo
+            git ls-files '*.html' > files.txt
+          else
+            IFS=',' read -ra patterns <<< "$INPUT_FILES"
+            for p in "${patterns[@]}"; do
+              p="$(echo "$p" | xargs)"          # trim spaces
+              [ -z "$p" ] && continue
+              matches=( $p )                     # expand glob
+              if [ ${#matches[@]} -eq 0 ]; then
+                echo "::warning::No files match '$p'"
+              fi
+              for m in "${matches[@]}"; do
+                [ -f "$m" ] && echo "$m" >> files.txt
+              done
+            done
+          fi
+
+          sort -u files.txt -o files.txt
+          count=$(wc -l < files.txt)
+          if [ "$count" -eq 0 ]; then
+            echo "::error::No files selected for upload"
+            exit 1
+          fi
+
+          {
+            echo "### Files to upload ($count)"
+            sed 's/^/- `/; s/$/`/' files.txt
+          } >> "$GITHUB_STEP_SUMMARY"
+          cat files.txt
+
+      - name: Upload via FTP
+        if: ${{ !inputs.dry_run }}
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_DIR: ${{ inputs.remote_dir }}
+        run: |
+          REMOTE_DIR="${REMOTE_DIR%/}"
+          {
+            echo "set ftp:ssl-allow yes"
+            echo "set net:max-retries 2"
+            echo "open --env-password -u \"$FTP_USERNAME\" \"$FTP_SERVER\""
+            while IFS= read -r f; do
+              dir="$(dirname "$f")"
+              if [ "$dir" = "." ]; then target="$REMOTE_DIR"; else target="$REMOTE_DIR/$dir"; fi
+              echo "mkdir -p -f \"$target\""
+              echo "put -O \"$target\" \"$f\""
+            done < files.txt
+            echo "bye"
+          } > upload.lftp
+
+          lftp -f upload.lftp
+          echo "✅ Uploaded $(wc -l < files.txt) file(s) to $REMOTE_DIR" >> "$GITHUB_STEP_SUMMARY"
