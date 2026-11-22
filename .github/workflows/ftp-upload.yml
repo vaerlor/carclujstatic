@@ -76,6 +76,7 @@ jobs:
           REMOTE_DIR="${REMOTE_DIR%/}"
           {
             echo "set ftp:ssl-allow yes"
+            echo "set ssl:verify-certificate no"
             echo "set net:max-retries 2"
             echo "open --env-password -u \"$FTP_USERNAME\" \"$FTP_SERVER\""
             while IFS= read -r f; do
